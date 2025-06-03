@@ -1,0 +1,17 @@
+
+.button {
+    -fx-background-color: #FF69B4; /* Colore di base */
+    -fx-text-fill: white; /* Colore del testo */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0.0, 0, 1); /* Effetto ombra */
+    -fx-font-size: 24; /* Dimensione del testo */
+    -fx-border-color: black; /* Colore del bordo */
+    -fx-border-width: 2; /* Spessore del bordo */
+}
+
+.button:hover {
+    -fx-background-color: #FFFF00; /* Colore al passaggio del mouse */
+}
+
+.button:pressed {
+    -fx-background-color: #FF0000; /* Colore quando il pulsante è premuto */
+}

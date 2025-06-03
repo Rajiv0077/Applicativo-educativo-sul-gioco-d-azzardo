@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="1100.0" prefWidth="2000.0" style="-fx-background-image: url('/resources/img/gameChoiceMenuBG.jpg'); -fx-background-size: cover; -fx-background-position: center; -fx-background-repeat: no-repeat; " xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="roulette.controllers.RoulettePazzaController">
+ <top>
+    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-padding: 10;" BorderPane.alignment="CENTER">
+       <children>
+          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="1579.0" HBox.hgrow="ALWAYS">
+             <children>
+                <Group>
+                   <children>
+                      <ImageView fitHeight="275.0" fitWidth="275.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                            <Image url="@../../resources/img/persona.png" />
+                         </image>
+                      </ImageView>
+                      <ImageView fx:id="RevolverBot" fitHeight="140.0" fitWidth="250.0" layoutX="201.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                         <image>
+                            <Image url="@../../resources/img/Revolver.png" />
+                         </image>
+                      </ImageView>
+                      <ImageView fx:id="GunShotBot" fitHeight="110.0" fitWidth="110.0" layoutX="148.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" visible="false">
+                         <image>
+                            <Image url="@../../resources/img/GinShot.png" />
+                         </image>
+                      </ImageView>
+                        <ImageView fx:id="bloodSpatBot" fitHeight="70.0" fitWidth="120.0" layoutX="191.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" rotate="40.0" visible="false">
+                           <image>
+                              <Image url="@../../resources/img/bloodSpat.png" />
+                           </image>
+                        </ImageView>
+                      <StackPane layoutX="209.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="95.0" />
+                       <Pane layoutX="237.0" layoutY="-54.0" prefHeight="57.0" prefWidth="250.0" />
+                   </children>
+                </Group>
+             </children>
+          </VBox>
+       </children>
+       <padding>
+          <Insets bottom="30.0" left="90.0" top="30.0" />
+       </padding>
+    </HBox>
+ </top>
+ <center>
+    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="162.0" prefWidth="860.0" style="-fx-padding: 20;" BorderPane.alignment="CENTER">
+       <children>
+          <ImageView fx:id="RevolverIMG" fitHeight="225.0" fitWidth="375.0" pickOnBounds="true" preserveRatio="true">
+             <image>
+                <Image url="@../../resources/img/Revolver.png" />
+             </image>
+               <HBox.margin>
+                  <Insets right="75.0" />
+               </HBox.margin>
+          </ImageView>
+       </children>
+       <padding>
+          <Insets right="1000.0" />
+       </padding>
+    </HBox>
+ </center>
+ <bottom>
+    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+       <padding>
+          <Insets bottom="35.0" left="20.0" />
+       </padding>
+       <children>
+          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+             <children>
+                <Group autoSizeChildren="false">
+                   <children>
+                      <Group>
+                         <children>
+                            <ImageView fitHeight="275.0" fitWidth="275.0" layoutX="-1.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                               <image>
+                                  <Image url="@../../resources/img/persona.png" />
+                               </image>
+                            </ImageView>
+                            <ImageView fx:id="RevolverPlayer" fitHeight="150.0" fitWidth="273.0" layoutX="193.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                               <image>
+                                  <Image url="@../../resources/img/Revolver.png" />
+                               </image>
+                            </ImageView>
+                            <ImageView fx:id="GunShotPlayer" fitHeight="100.0" fitWidth="100.0" layoutX="144.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" visible="false">
+                               <image>
+                                  <Image url="@../../resources/img/GinShot.png" />
+                               </image>
+                            </ImageView>
+                            <StackPane layoutX="218.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="95.0">
+                               <children>
+                                  <ImageView fx:id="bloodDrip" fitHeight="100.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                     <image>
+                                        <Image url="@../../resources/img/drippingBlood.png" />
+                                     </image>
+                                  </ImageView>
+                                  <Button fx:id="sparaBtn" mnemonicParsing="false" onAction="#spara" styleClass="blood-button" text="SPARA" visible="false">
+                                     <font>
+                                        <Font size="36.0" />
+                                     </font>
+                                  </Button>
+                               </children>
+                            </StackPane>
+                             <Button fx:id="giraBtn" layoutX="252.0" layoutY="158.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#gira" style="-fx-font-size: 22;" styleClass="gira-button" text="Gira" visible="false">
+                                <font>
+                                   <Font size="24.0" />
+                                </font>
+                             </Button>
+                             <Pane layoutX="231.0" layoutY="-65.0" prefHeight="100.0" prefWidth="250.0" />
+                         </children>
+                      </Group>
+                   </children>
+                </Group>
+             </children>
+          </HBox>
+       </children>
+    </HBox>
+ </bottom>
+ <left>
+    <VBox alignment="CENTER_LEFT" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="208.0" style="-fx-spacing: 500;" BorderPane.alignment="CENTER">
+       <children>
+          <HBox alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="100.0" prefWidth="600.0">
+             <children>
+                <Label fx:id="lblBot" text="Bot">
+                   <font>
+                      <Font size="48.0" />
+                   </font>
+                </Label>
+             </children>
+          </HBox>
+          <HBox alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="100.0" prefWidth="600.0">
+             <children>
+                <Label fx:id="lblPlayer" text="Player">
+                   <font>
+                      <Font size="48.0" />
+                   </font>
+                </Label>
+             </children>
+          </HBox>
+       </children>
+    </VBox>
+ </left>
+ <right>
+    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="357.0" BorderPane.alignment="CENTER">
+       <children>
+          <Button fx:id="startBtn" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#giraRevolver" prefHeight="85.0" prefWidth="140.0" style="-fx-font-size: 28;" styleClass="gira-button" text="Start">
+             <font>
+                <Font size="48.0" />
+             </font>
+               <HBox.margin>
+                  <Insets right="200.0" />
+               </HBox.margin>
+          </Button>
+       </children>
+    </HBox>
+ </right>
+   <stylesheets>
+      <URL value="@../css/application.css" />
+      <URL value="@../application.css" />
+   </stylesheets>
+</BorderPane>

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polyline?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1540.0" style="-fx-background-image: url('/resources/img/gameChoiceMenuBG.jpg'); -fx-background-size: cover; -fx-background-position: center; -fx-background-repeat: no-repeat; " xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="roulette.controllers.RicaricaController">
+ <center>
+    <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="774.0">
+       <children>
+          <Group>
+             <children>
+                  <StackPane layoutX="47.0" layoutY="181.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="273.0">
+        
+                      <!-- Group che contiene tutte le sezioni e i numeri -->
+                      <Group fx:id="sezioniGroup" scaleX="0.6" scaleY="0.6" StackPane.alignment="CENTER">
+                          <Circle radius="200.0" stroke="BLACK" strokeType="INSIDE">
+                         <fill>
+                            <LinearGradient endX="1.0" endY="1.0">
+                               <stops>
+                                  <Stop>
+                                     <color>
+                                        <Color red="0.34736841917037964" green="0.3460818827152252" blue="0.3460818827152252" />
+                                     </color>
+                                  </Stop>
+                                  <Stop offset="0.9973082099596231">
+                                     <color>
+                                        <Color red="0.7368420958518982" green="0.7368420958518982" blue="0.7368420958518982" />
+                                     </color>
+                                  </Stop>
+                                  <Stop offset="1.0">
+                                     <color>
+                                        <Color red="0.7368420958518982" green="0.7368420958518982" blue="0.7368420958518982" />
+                                     </color>
+                                  </Stop>
+                               </stops>
+                            </LinearGradient>
+                         </fill>
+                      </Circle>
+                          <Circle layoutY="-136.0" radius="50.0" rotate="-90.0" stroke="BLACK" strokeType="INSIDE">
+                         <fill>
+                            <LinearGradient endX="1.0" endY="1.0" startX="0.6515151510636012">
+                               <stops>
+                                  <Stop>
+                                     <color>
+                                        <Color red="0.729411780834198" green="0.501960813999176" blue="0.007843137718737125" />
+                                     </color>
+                                  </Stop>
+                                  <Stop offset="0.9973082099596231">
+                                     <color>
+                                        <Color red="0.5473684072494507" green="0.40035608410835266" blue="0.08311890810728073" />
+                                     </color>
+                                  </Stop>
+                                  <Stop offset="1.0">
+                                     <color>
+                                        <Color red="0.5473684072494507" green="0.40035608410835266" blue="0.08311890810728073" />
+                                     </color>
+                                  </Stop>
+                               </stops>
+                            </LinearGradient>
+                         </fill>
+                      </Circle>
+                          <Circle fill="WHITE" layoutX="-116.0" layoutY="58.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+                          <Circle fill="WHITE" layoutX="120.0" layoutY="58.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+                          <Circle fill="WHITE" layoutX="-110.0" layoutY="-78.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+                          <Circle fill="WHITE" layoutX="120.0" layoutY="-71.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+                          <Circle fill="WHITE" layoutY="136.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+                          <Circle fx:id="proiettile" layoutY="-136.0" radius="45.0" stroke="BLACK" strokeType="INSIDE">
+                         <fill>
+                            <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.35227269837350556">
+                               <stops>
+                                  <Stop>
+                                     <color>
+                                        <Color red="0.729411780834198" green="0.501960813999176" blue="0.007843137718737125" />
+                                     </color>
+                                  </Stop>
+                                  <Stop offset="1.0">
+                                     <color>
+                                        <Color red="0.5157894492149353" green="0.38572773337364197" blue="0.10506822913885117" />
+                                     </color>
+                                  </Stop>
+                               </stops>
+                            </LinearGradient>
+                         </fill>
+                      </Circle>
+                          <Circle layoutY="-136.0" radius="20.0" stroke="BLACK" strokeType="INSIDE">
+                         <fill>
+                            <LinearGradient endX="1.0" endY="1.0" startX="0.6515151510636012">
+                               <stops>
+                                  <Stop>
+                                     <color>
+                                        <Color red="0.6842105388641357" green="0.6810006499290466" blue="0.6740740537643433" />
+                                     </color>
+                                  </Stop>
+                                  <Stop offset="1.0">
+                                     <color>
+                                        <Color red="0.3052631616592407" green="0.3052631616592407" blue="0.3052631616592407" />
+                                     </color>
+                                  </Stop>
+                               </stops>
+                            </LinearGradient>
+                         </fill>
+                      </Circle>
+                          <Text layoutX="-21.0" layoutY="-160.0" rotate="-20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="R">
+                              <font>
+                                  <Font size="14.0" />
+                              </font>
+                          </Text>
+                          <Text layoutX="-3.0" layoutY="-162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                              <font>
+                                  <Font size="14.0" />
+                              </font>
+                          </Text>
+                          <Text layoutX="12.0" layoutY="-159.0" rotate="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="P">
+                              <font>
+                                  <Font size="15.0" />
+                              </font>
+                          </Text>
+                          <Text layoutX="-24.0" layoutY="-104.0" rotate="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="S">
+                              <font>
+                                  <Font size="14.0" />
+                              </font>
+                          </Text>
+                          <Text layoutX="-14.0" layoutY="-100.0" rotate="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Y">
+                              <font>
+                                  <Font size="14.0" />
+                              </font>
+                          </Text>
+                          <Text layoutX="-4.0" layoutY="-99.0" rotate="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="T" textAlignment="JUSTIFY" wrappingWidth="7.3349609375">
+                              <font>
+                                  <Font size="14.5" />
+                              </font>
+                          </Text>
+                          <Text layoutX="6.0" layoutY="-99.0" rotate="-5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                              <font>
+                                  <Font size="14.0" />
+                              </font>
+                          </Text>
+                          <Text layoutX="12.0" layoutY="-100.0" rotate="-15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+                              <font>
+                                  <Font size="14.0" />
+                              </font>
+                          </Text>
+                          <Text layoutX="20.0" layoutY="-103.0" rotate="-20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7">
+                              <font>
+                                  <Font size="14.0" />
+                              </font>
+                          </Text>
+                         <!-- Cerchio esterno della roulette -->
+                         <Circle fill="transparent" radius="205.0" strokeWidth="3.0">
+                         <stroke>
+                            <LinearGradient endX="1.0" endY="1.0">
+                               <stops>
+                                  <Stop>
+                                     <color>
+                                        <Color red="0.34736841917037964" green="0.3460818827152252" blue="0.3460818827152252" />
+                                     </color>
+                                  </Stop>
+                                  <Stop offset="0.9973082099596231">
+                                     <color>
+                                        <Color red="0.7368420958518982" green="0.7368420958518982" blue="0.7368420958518982" />
+                                     </color>
+                                  </Stop>
+                                  <Stop offset="1.0">
+                                     <color>
+                                        <Color red="0.7368420958518982" green="0.7368420958518982" blue="0.7368420958518982" />
+                                     </color>
+                                  </Stop>
+                               </stops>
+                            </LinearGradient>
+                         </stroke>
+                      </Circle>
+                       <Group fx:id="groupSlot6" layoutX="-110.0" layoutY="-78.0">
+                          <children>
+                             <Circle fill="WHITE" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+                             <Label layoutX="-15.0" layoutY="-45.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="?">
+                                <font>
+                                   <Font size="64.0" />
+                                </font>
+                             </Label>
+                          </children>
+                       </Group>
+                       <Group fx:id="groupSlot2" layoutX="120.0" layoutY="-71.0">
+                          <children>
+                             <Circle fill="WHITE" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+                             <Label layoutX="-15.0" layoutY="-45.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="?">
+                                <font>
+                                   <Font size="64.0" />
+                                </font>
+                             </Label>
+                          </children>
+                       </Group>
+                       <Group fx:id="groupSlot5" layoutX="-116.0" layoutY="58.0">
+                          <children>
+                             <Circle fill="WHITE" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+                             <Label layoutX="-15.0" layoutY="-45.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="?">
+                                <font>
+                                   <Font size="64.0" />
+                                </font>
+                             </Label>
+                          </children>
+                       </Group>
+                       <Group fx:id="groupSlot3" layoutX="120.0" layoutY="58.0">
+                          <children>
+                             <Circle fill="WHITE" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+                             <Label layoutX="-15.0" layoutY="-45.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="?">
+                                <font>
+                                   <Font size="64.0" />
+                                </font>
+                             </Label>
+                          </children>
+                       </Group>
+                       <Group fx:id="groupSlot4" layoutY="136.0">
+                          <children>
+                             <Circle fill="WHITE" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+                             <Label layoutX="-15.0" layoutY="-45.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="?">
+                                <font>
+                                   <Font size="64.0" />
+                                </font>
+                             </Label>
+                          </children>
+                       </Group>
+                       <Group fx:id="groupSlot1" layoutY="-136.0">
+                          <children>
+                             <Circle fill="WHITE" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+                             <Label layoutX="-15.0" layoutY="-45.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="?">
+                                <font>
+                                   <Font size="64.0" />
+                                </font>
+                             </Label>
+                          </children>
+                       </Group>
+                      </Group>
+                  </StackPane>
+                <Circle fill="#9b9d9e" layoutX="384.0" layoutY="214.0" radius="100.0" scaleX="1.2" scaleY="1.2" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                <Polyline fill="BLACK" layoutX="386.0" layoutY="312.0" points="-59.91116714477539, -29.58888816833496, 58.31108093261719, -29.38796043395996, 83.66668701171875, 289.5999755859375, -100.5999755859375, 289.5999755859375" scaleX="1.2" scaleY="1.2" strokeType="INSIDE" strokeWidth="0.0" />
+                <Line endX="185.5608673095703" endY="78.08386993408203" layoutX="353.0" layoutY="408.0" rotate="72.5" scaleX="1.2" scaleY="1.2" startX="-123.3426742553711" startY="-20.96014976501465" stroke="#5e5e5e" strokeWidth="3.0" />
+                <Polyline fill="#8e8c8c" layoutX="395.0" layoutY="75.0" points="-54.07191848754883, 70.43817138671875, 41.79097366333008, 70.85505676269531, 10.714468955993652, 197.7060089111328, -28.073427200317383, 197.7060089111328" scaleX="1.1" scaleY="1.1" strokeType="INSIDE" strokeWidth="0.0" />
+                <Polyline fill="#8e8c8c" layoutX="388.0" layoutY="15.0" points="-16.60003662109375, 61.266700744628906, 10.066650390625, 61.26669692993164, 10.066650390625, 89.06668853759766, -16.60003662109375, 89.06668853759766" strokeType="INSIDE" strokeWidth="0.0" />
+                <Polyline fill="#737070" layoutX="403.0" layoutY="85.0" points="-28.53338623046875, 75.86668395996094, -1.86669921875, 75.86668395996094, -1.86669921875, 138.80001831054688, -28.53338623046875, 138.80001831054688" scaleX="0.9" strokeType="INSIDE" strokeWidth="0.0" />
+             </children>
+          </Group>
+          <Group fx:id="comandiGroup">
+             <children>
+                <Button fx:id="spinCounterBtn" layoutX="-38.0" layoutY="-170.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#increaseCounter" style="-fx-font-size: 24px;" text="x0">
+                   <font>
+                      <Font size="18.0" />
+                   </font>
+                </Button>
+                  <Button fx:id="ricaricaBtn" disable="true" layoutX="496.0" layoutY="-304.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ricarica" style="-fx-font-size: 24px;" text="Reload">
+                   <font>
+                      <Font size="18.0" />
+                   </font>
+                </Button>
+                  <Pane layoutX="448.0" layoutY="-130.0" prefHeight="200.0" prefWidth="200.0" />
+                  <Pane layoutX="-144.0" layoutY="-86.0" prefHeight="150.0" prefWidth="200.0" />
+             </children>
+          </Group>
+       </children>
+    </StackPane>
+ </center>
+ <right>
+    <HBox prefHeight="698.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+ </right>
+ <bottom>
+    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 50;" BorderPane.alignment="CENTER">
+       <children>
+          <VBox alignment="CENTER" prefHeight="200.0" />
+       </children>
+    </HBox>
+ </bottom>
+   <stylesheets>
+      <URL value="@../css/application.css" />
+      <URL value="@../application.css" />
+   </stylesheets>
+</BorderPane>

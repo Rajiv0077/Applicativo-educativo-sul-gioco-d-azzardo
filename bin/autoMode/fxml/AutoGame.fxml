@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="1100.0" maxWidth="1960.0" minHeight="900.0" minWidth="1600.0" style="-fx-background-image: url('/resources/img/autoBG.png'); -fx-background-size: cover; -fx-background-position: center; -fx-background-repeat: no-repeat;" stylesheets="@../../roulette/application.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="autoMode.AutoModeController">
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="450.0" style="-fx-padding: 30;">
+               <children>
+                  <Button fx:id="goBackBtn" mnemonicParsing="false" onAction="#goBack" style="-fx-font-size: 20px; -fx-background-color: crimson;" text="⬅ Back to Menu" textFill="WHITE" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" style="-fx-padding: 50; -fx-spacing: 50;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" spacing="15.0" style="-fx-background-color: #006633; -fx-padding: 5;" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label text="Money:" textFill="WHITE">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="moneyField" prefHeight="48.0" prefWidth="215.0" style="-fx-border-color: black; -fx-border-width: 2px;" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" spacing="70.0">
+			    <children>
+			        <!-- Min Bet Section (always visible when money is entered) -->
+			        <VBox spacing="30.0">
+			            <children>
+			                <Label style="-fx-background-color: #006633; -fx-padding: 5;" text="Min Bet:" textFill="WHITE">
+			                    <font>
+			                        <Font size="48.0" />
+			                    </font>
+			                </Label>
+			                <ChoiceBox fx:id="minBet" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white;" VBox.vgrow="ALWAYS" />
+			            </children>
+			        </VBox>
+			
+			        <!-- Graph Image (visible when valid bets are set) -->
+			        <StackPane>
+			            <ImageView fx:id="graphImg" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" rotate="17.0" visible="false">
+			                <image>
+			                    <Image url="@../../resources/img/RisingGraph.png" />
+			                </image>
+			            </ImageView>
+			            
+			            <!-- Max Bet Section (shown when regular max bet is selected) -->
+			            <VBox fx:id="maxBetBox" alignment="CENTER" spacing="30.0" visible="false">
+			                <children>
+			                    <Label style="-fx-background-color: crimson; -fx-padding: 5;" text="Max Bet:">
+			                        <font>
+			                            <Font size="48.0" />
+			                        </font>
+			                    </Label>
+			                    <ChoiceBox fx:id="maxBet" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white;" VBox.vgrow="ALWAYS" />
+			                </children>
+			            </VBox>
+			            
+			            <!-- No Limit Label (shown when 999999 is selected) -->
+			            <Label fx:id="lblNessunLimite" alignment="CENTER" text="No limits bet is selected!" textFill="WHITE" visible="false" wrapText="true">
+			                <font>
+			                    <Font size="24.0" />
+			                </font>
+			                <StackPane.margin>
+			                    <Insets top="20" />
+			                </StackPane.margin>
+			            </Label>
+			        </StackPane>
+			    </children>
+			</HBox>
+            <Label text="Time for each game:" textFill="WHITE" underline="true">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <HBox fx:id="hbox1" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" spacing="40.0" VBox.vgrow="NEVER">
+               <children>
+                  <VBox>
+                     <children>
+                        <Group>
+                           <children>
+                              <Circle fill="WHITE" layoutX="39.0" layoutY="36.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                              <ImageView fitHeight="80.0" fitWidth="100.0" layoutX="-1.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../resources/img/watch1.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Group>
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" spacing="20.0" style="-fx-background-color: white;" HBox.hgrow="NEVER">
+                     <children>
+                        <Group HBox.hgrow="NEVER">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" height="42.0" layoutX="-5.0" layoutY="-3.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="360.0">
+                                 <fill>
+                                    <LinearGradient endX="1.0" endY="1.0">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color green="1.0" blue="0.09010152518749237" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.006729475100942127">
+                                             <color>
+                                                <Color green="1.0" blue="0.09010152518749237" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.11706004004858353">
+                                             <color>
+                                                <Color red="0.49534690380096436" green="1.0" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.24474936808587466">
+                                             <color>
+                                                <Color red="0.7284263968467712" green="1.0" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.35971178150543265">
+                                             <color>
+                                                <Color red="0.9720811247825623" green="1.0" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.4760266552867411">
+                                             <color>
+                                                <Color red="1.0" green="0.7842639684677124" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.6051308144306209">
+                                             <color>
+                                                <Color red="1.0" green="0.6615059971809387" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.7266651347536355">
+                                             <color>
+                                                <Color red="1.0" green="0.5129441022872925" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.843826937596428">
+                                             <color>
+                                                <Color red="1.0" green="0.36294418573379517" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.946164199192463">
+                                             <color>
+                                                <Color red="1.0" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="1.0" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </fill>
+                              </Rectangle>
+                              <Slider fx:id="RoundTSlider" blockIncrement="1.0" majorTickUnit="5.0" max="60.0" maxWidth="-Infinity" prefHeight="38.0" prefWidth="350.0" showTickLabels="true" showTickMarks="true">
+                                 <cursor>
+                                    <Cursor fx:constant="W_RESIZE" />
+                                 </cursor>
+                              </Slider>
+                              <Label fx:id="lbl1" layoutX="368.0" style="-fx-padding: 5;" text="0" textFill="#28c106">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="2.0" layoutX="395.0" layoutY="16.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="2.0" />
+                           </children>
+                        </Group>
+                     </children>
+                  </HBox>
+                  <ChoiceBox fx:id="choiceBox1" prefWidth="150.0" style="-fx-background-color: white;" />
+               </children>
+            </HBox>
+            <Label text="Time for entire simulation:" textFill="WHITE" underline="true">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <HBox fx:id="hbox2" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" spacing="40.0">
+               <children>
+                  <HBox fx:id="hboxInf" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" spacing="43.5" HBox.hgrow="NEVER">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Group>
+                                 <children>
+                                    <Circle fill="WHITE" layoutX="38.0" layoutY="38.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                                    <ImageView fitHeight="75.0" fitWidth="100.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../resources/img/timer.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Group>
+                           </children>
+                        </VBox>
+                        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" spacing="20.0" style="-fx-background-color: white;" HBox.hgrow="NEVER">
+                           <children>
+                              <Group HBox.hgrow="NEVER">
+                                 <children>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" height="42.0" layoutX="-4.0" layoutY="-4.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="360.0">
+                                       <fill>
+                                          <LinearGradient endX="1.0" endY="1.0">
+                                             <stops>
+                                                <Stop>
+                                                   <color>
+                                                      <Color green="1.0" blue="0.09010152518749237" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="0.006729475100942127">
+                                                   <color>
+                                                      <Color green="1.0" blue="0.09010152518749237" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="0.11706004004858353">
+                                                   <color>
+                                                      <Color red="0.49534690380096436" green="1.0" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="0.24474936808587466">
+                                                   <color>
+                                                      <Color red="0.7284263968467712" green="1.0" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="0.35971178150543265">
+                                                   <color>
+                                                      <Color red="0.9720811247825623" green="1.0" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="0.4760266552867411">
+                                                   <color>
+                                                      <Color red="1.0" green="0.7842639684677124" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="0.6051308144306209">
+                                                   <color>
+                                                      <Color red="1.0" green="0.6615059971809387" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="0.7266651347536355">
+                                                   <color>
+                                                      <Color red="1.0" green="0.5129441022872925" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="0.843826937596428">
+                                                   <color>
+                                                      <Color red="1.0" green="0.36294418573379517" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="0.946164199192463">
+                                                   <color>
+                                                      <Color red="1.0" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="1.0">
+                                                   <color>
+                                                      <Color red="1.0" />
+                                                   </color>
+                                                </Stop>
+                                             </stops>
+                                          </LinearGradient>
+                                       </fill>
+                                    </Rectangle>
+                                    <Slider fx:id="TotalTSlider" blockIncrement="1.0" majorTickUnit="5.0" max="60.0" maxWidth="-Infinity" prefHeight="38.0" prefWidth="350.0" showTickLabels="true" showTickMarks="true">
+                                       <cursor>
+                                          <Cursor fx:constant="W_RESIZE" />
+                                       </cursor>
+                                    </Slider>
+                                    <Label fx:id="lbl2" layoutX="369.0" layoutY="-1.0" style="-fx-padding: 5;" text="0" textFill="#28c106">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="2.0" layoutX="395.0" layoutY="15.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="2.0" />
+                                 </children>
+                              </Group>
+                           </children>
+                        </HBox>
+                        <ChoiceBox fx:id="choiceBox2" prefWidth="150.0" style="-fx-background-color: white;" />
+                     </children>
+                  </HBox>
+                  <CheckBox fx:id="infiniteCheck" mnemonicParsing="false" onAction="#toggleInfinite" text="Infinite" textFill="WHITE" underline="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Region HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <right>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <VBox spacing="140.0">
+               <children>
+                  <RadioButton fx:id="radioDice" mnemonicParsing="false" onAction="#rDadi" text="Dice" textFill="WHITE">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="radioRoulette" mnemonicParsing="false" onAction="#rRoulette" text="Roulette" textFill="WHITE">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="radioGuessNumber" mnemonicParsing="false" onAction="#rIndovina" text="Guess Number" textFill="WHITE">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="radioCoin" mnemonicParsing="false" onAction="#rMonete" text="Coin Flip" textFill="WHITE">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="radioSlot" mnemonicParsing="false" onAction="#rSlot" text="Slot Machine" textFill="WHITE">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="40.0">
+               <children>
+                  <Group fx:id="groupDadi">
+                     <children>
+                        <StackPane fx:id="diceContainer1"> <!-- 3D Dice 1 -->
+					    </StackPane>
+                     </children>
+                  </Group>
+                  <Group>
+                     <children>
+                        <Circle radius="75.0" stroke="SILVER" strokeType="INSIDE">
+                           <fill>
+                              <RadialGradient centerX="0.5088495490825282" centerY="0.5" cycleMethod="REPEAT" radius="0.0045871472139971115">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.006729475100942127">
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.060355184978498504">
+                                       <color>
+                                          <Color red="0.4526315927505493" green="0.23385964334011078" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.424390243902439">
+                                       <color>
+                                          <Color red="0.17894737422466278" green="0.0924561396241188" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.682283425795227">
+                                       <color>
+                                          <Color red="0.44999998807907104" green="0.23250000178813934" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.5400000214576721" green="0.28161001205444336" blue="0.005400000140070915" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </RadialGradient>
+                           </fill>
+                        </Circle>
+                        <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#a99d93" height="5.0" layoutX="-70.0" layoutY="-2.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="5.0" />
+                        <Group fx:id="groupRoulette">
+                           <children>
+                              <Circle fill="#1a1a1a" radius="61.0" stroke="SILVER" strokeType="INSIDE" />
+                              <Arc fill="FORESTGREEN" length="60.0" radiusX="60.0" radiusY="60.0" startAngle="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="verde-zero" type="ROUND" />
+                              <Arc fill="FIREBRICK" layoutX="21.0" layoutY="19.0" length="60.0" radiusX="60.0" radiusY="60.0" rotate="54.0" startAngle="51.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="verde-zero" type="ROUND" />
+                              <Arc fill="#1a1a1a" layoutX="-25.0" layoutY="12.0" length="60.0" radiusX="60.0" radiusY="60.0" rotate="-59.0" startAngle="58.0" stroke="#1a1a1a" strokeType="INSIDE" strokeWidth="0.0" styleClass="RED-roulette" type="ROUND" />
+                              <Arc fill="FORESTGREEN" layoutX="-1.0" layoutY="60.0" length="60.0" radiusX="60.0" radiusY="60.0" rotate="181.0" startAngle="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="verde-zero" type="ROUND" />
+                              <Arc fill="FIREBRICK" layoutX="1.0" layoutY="-18.0" length="34.0" radiusX="45.0" radiusY="45.0" rotate="14.0" startAngle="104.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="verde-zero" type="ROUND" />
+                              <Arc fill="#1a1a1a" layoutX="15.0" layoutY="-8.0" length="34.0" radiusX="45.0" radiusY="45.0" rotate="20.0" startAngle="60.2" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="verde-zero" type="ROUND" />
+                              <Arc fill="#1a1a1a" layoutX="14.0" layoutY="-10.0" length="30.0" radiusX="45.0" radiusY="45.0" rotate="-16.0" startAngle="-17.1" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="verde-zero" type="ROUND" />
+                              <Arc fill="FIREBRICK" layoutX="-10.0" layoutY="-6.0" length="32.0" radiusX="48.0" radiusY="48.0" rotate="4.0" startAngle="141.6" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="verde-zero" type="ROUND" />
+                              <Arc fill="FIREBRICK" layoutX="61.0" layoutY="24.0" length="30.0" radiusX="45.0" radiusY="45.0" rotate="176.0" startAngle="146.6" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="verde-zero" type="ROUND" />
+                              <Arc fill="FIREBRICK" layoutX="-30.0" layoutY="-14.0" length="31.0" radiusX="47.0" radiusY="47.0" rotate="60.099999999999994" startAngle="-113.19999999999999" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="verde-zero" type="ROUND" />
+                              <Arc fill="FIREBRICK" layoutX="1.0" layoutY="46.0" length="37.0" radiusX="45.0" radiusY="45.0" rotate="-84.0" startAngle="145.6" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="verde-zero" type="ROUND" />
+                              <Arc fill="FIREBRICK" layoutX="19.0" layoutY="13.0" length="34.0" radiusX="45.0" radiusY="45.0" rotate="-32.9" startAngle="-113.19999999999999" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="verde-zero" type="ROUND" />
+                              <Circle radius="20.0" stroke="BLACK" strokeType="INSIDE">
+                                 <fill>
+                                    <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="1.0">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.5473684072494507" green="0.36998051404953003" blue="0.040545810014009476" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.13161868496208515">
+                                             <color>
+                                                <Color red="0.5473684072494507" green="0.36998051404953003" blue="0.040545810014009476" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.32705248990578734">
+                                             <color>
+                                                <Color red="0.7473683953285217" green="0.52841717004776" blue="0.12179337441921234" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.7271969274201492">
+                                             <color>
+                                                <Color red="0.8947368264198303" green="0.6616081595420837" blue="0.22865496575832367" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="1.0" green="1.0" blue="1.0" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </fill>
+                              </Circle>
+                              <Circle radius="5.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5">
+                                 <fill>
+                                    <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="1.0">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.621052622795105" green="0.40368419885635376" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.11036339165545087">
+                                             <color>
+                                                <Color red="0.621052622795105" green="0.40368419885635376" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.5879460328923609">
+                                             <color>
+                                                <Color red="0.8315789699554443" green="0.5594165325164795" blue="0.08931773900985718" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="1.0" green="1.0" blue="1.0" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </fill>
+                              </Circle>
+                              <Line endX="7.0" layoutX="5.0" />
+                              <Line endX="7.0" layoutX="-12.0" />
+                              <Line endX="7.0" layoutX="-3.0" layoutY="-9.0" rotate="90.0" />
+                              <Line endX="7.0" layoutX="-3.0" layoutY="9.0" rotate="90.0" />
+                              <Circle layoutX="12.0" radius="2.3" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5">
+                                 <fill>
+                                    <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="1.0">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.621052622795105" green="0.40368419885635376" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.11036339165545087">
+                                             <color>
+                                                <Color red="0.621052622795105" green="0.40368419885635376" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.5879460328923609">
+                                             <color>
+                                                <Color red="0.8315789699554443" green="0.5594165325164795" blue="0.08931773900985718" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="1.0" green="1.0" blue="1.0" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </fill>
+                              </Circle>
+                              <Circle layoutX="-13.0" radius="2.3" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5">
+                                 <fill>
+                                    <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="1.0">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.621052622795105" green="0.40368419885635376" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.11036339165545087">
+                                             <color>
+                                                <Color red="0.621052622795105" green="0.40368419885635376" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.5879460328923609">
+                                             <color>
+                                                <Color red="0.8315789699554443" green="0.5594165325164795" blue="0.08931773900985718" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="1.0" green="1.0" blue="1.0" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </fill>
+                              </Circle>
+                              <Circle layoutY="13.0" radius="2.3" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5">
+                                 <fill>
+                                    <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="1.0">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.621052622795105" green="0.40368419885635376" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.11036339165545087">
+                                             <color>
+                                                <Color red="0.621052622795105" green="0.40368419885635376" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.5879460328923609">
+                                             <color>
+                                                <Color red="0.8315789699554443" green="0.5594165325164795" blue="0.08931773900985718" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="1.0" green="1.0" blue="1.0" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </fill>
+                              </Circle>
+                              <Circle layoutY="-13.0" radius="2.3" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5">
+                                 <fill>
+                                    <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="1.0">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.621052622795105" green="0.40368419885635376" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.11036339165545087">
+                                             <color>
+                                                <Color red="0.621052622795105" green="0.40368419885635376" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.5879460328923609">
+                                             <color>
+                                                <Color red="0.8315789699554443" green="0.5594165325164795" blue="0.08931773900985718" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="1.0" green="1.0" blue="1.0" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </fill>
+                              </Circle>
+                           </children>
+                        </Group>
+                        <Circle fill="WHITE" layoutX="50.0" radius="4.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" />
+                        <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#a99d93" height="5.0" layoutX="65.0" layoutY="-2.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="5.0" />
+                        <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#a99d93" height="5.0" layoutX="59.0" layoutY="24.0" rotate="-15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="5.0" />
+                        <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#a99d93" height="5.0" layoutX="-64.0" layoutY="24.0" rotate="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="5.0" />
+                        <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#a99d93" height="5.0" layoutX="-2.0" layoutY="-70.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="5.0" />
+                        <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#a99d93" height="5.0" layoutX="-66.0" layoutY="-26.0" rotate="-15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="5.0" />
+                        <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#a99d93" height="5.0" layoutX="61.0" layoutY="-26.0" rotate="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="5.0" />
+                        <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#a99d93" height="5.0" layoutX="-2.0" layoutY="65.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="5.0" />
+                        <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#a99d93" height="5.0" layoutX="24.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="5.0" />
+                        <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#a99d93" height="5.0" layoutX="-29.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="5.0" />
+                        <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#a99d93" height="5.0" layoutX="-30.0" layoutY="-65.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="5.0" />
+                        <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#a99d93" height="5.0" layoutX="24.0" layoutY="-65.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="5.0" />
+                        <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#a99d93" height="5.0" layoutX="-51.0" layoutY="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="5.0" />
+                        <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#a99d93" height="5.0" layoutX="45.0" layoutY="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="5.0" />
+                        <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#a99d93" height="5.0" layoutX="47.0" layoutY="-50.0" rotate="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="5.0" />
+                        <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#a99d93" height="5.0" layoutX="-53.0" layoutY="-49.0" rotate="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="5.0" />
+                     </children>
+                  </Group>
+                  <Group fx:id="groupIndovina">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="120.0" stroke="SILVER" strokeType="INSIDE" strokeWidth="3.0" width="120.0" />
+                        <Label fx:id="lblNum" layoutX="47.0" layoutY="25.0" text="1">
+                           <font>
+                              <Font size="48.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblX" layoutX="31.0" layoutY="-13.0" text="X" textFill="#c40303" visible="false">
+                           <font>
+                              <Font size="100.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="46.0" layoutY="-16.0" />
+                        <Label layoutX="41.0" layoutY="117.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </Group>
+                  <Group fx:id="groupMonete">
+                     <children>
+                        <Circle layoutX="60.0" layoutY="60.0" radius="60.0" stroke="#765f04" strokeType="INSIDE" strokeWidth="7.0">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.800000011920929" green="0.6666666865348816" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.47913862718707945">
+                                       <color>
+                                          <Color red="0.800000011920929" green="0.6666666865348816" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.48048780487804876">
+                                       <color>
+                                          <Color red="0.800000011920929" green="0.6666666865348816" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.6000000238418579" green="0.5003703832626343" blue="0.002222222276031971" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                        </Circle>
+                        <Label layoutX="42.0" layoutY="13.0" text="\$" textFill="#816b00">
+                           <font>
+                              <Font size="64.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="39.0" layoutY="13.0" opacity="0.37" text="\$" textFill="#635100">
+                           <font>
+                              <Font size="64.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
+                  </Group>
+                  <Group fx:id="groupSlot">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="135.0" layoutX="-2.0" layoutY="-3.0" stroke="SILVER" strokeType="INSIDE" strokeWidth="10.0" width="125.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="SILVER" height="40.0" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+                        <Label layoutX="28.0" layoutY="1.0" text="SLOT">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Label>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="90.0" layoutY="40.0" stroke="BLACK" strokeType="INSIDE" width="40.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="90.0" layoutX="40.0" layoutY="40.0" stroke="BLACK" strokeType="INSIDE" width="40.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="90.0" layoutX="80.0" layoutY="40.0" stroke="BLACK" strokeType="INSIDE" width="40.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff21216a" height="30.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+                        <Label layoutX="13.0" layoutY="43.0" text="5" textFill="#21bf1e">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="95.0" layoutY="43.0" text="3" textFill="#139dbc">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="55.0" layoutY="43.0" text="6" textFill="#a9135e">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="73.0" text="7" textFill="RED">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="94.0" layoutY="73.0" text="7" textFill="RED">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="56.0" layoutY="73.0" text="7" textFill="RED">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="13.0" layoutY="101.0" text="2" textFill="#3700ff">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="94.0" layoutY="102.0" text="4" textFill="#ffa100">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="55.0" layoutY="102.0" text="1">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="SILVER" height="45.0" layoutX="123.0" layoutY="87.0" stroke="BLACK" strokeType="INSIDE" width="30.0" />
+                        <Group fx:id="groupLeva" layoutX="139.0" layoutY="77.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="SILVER" height="45.0" layoutX="-3.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" width="5.0" />
+                              <Circle fill="RED" layoutY="3.0" radius="7.5" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                           <rotationAxis>
+                              <Point3D x="10.0" z="1.0" />
+                           </rotationAxis>
+                        </Group>
+                     </children>
+                  </Group>
+               </children>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+   </right>
+   <bottom>
+      <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" style="-fx-padding: 15;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="startBTN" mnemonicParsing="false" onAction="#lancia" style="-fx-font-size: 36; -fx-label-padding: 7.5;" styleClass="gira-button" text="Start">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Button>
+         </children></HBox>
+   </bottom>
+</BorderPane>

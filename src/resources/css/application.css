@@ -1,0 +1,162 @@
+/* Stile base per tutti i pulsanti */
+.button {
+   -fx-border-color: #b98f10;  /* Bordo bianco */
+   -fx-border-width: 1.5px;
+   -fx-font-weight: bold;
+   -fx-font-size: 14px;
+}
+.gira-button {
+   -fx-background-color: #006633;
+   -fx-text-fill: ghostwhite;
+   -fx-font-family: "Arial";
+   -fx-font-size: 17px;
+   -fx-font-weight: bold;
+   -fx-padding: 10px 20px;
+   -fx-border-radius: 500px;
+   -fx-background-radius: 500px;
+   -fx-cursor: hand;
+}
+.gira-button:hover {
+   -fx-background-color: #000;
+   -fx-text-fill: #66ff66;
+}
+/* Verde per lo zero (0 e 00) */
+.verde-zero {
+   -fx-background-color: #006633;  /* Sfondo verde scuro */
+   -fx-text-fill: white;           /* Testo bianco */
+}
+/* Verde per pulsanti generici (Odd/Even, ecc.) */
+.verde-generico {
+   -fx-background-color: #228B22;  /* Sfondo verde foresta */
+   -fx-text-fill: white;           /* Testo bianco */
+}
+/* Pulsanti Red (testo rosso) */
+.RED-roulette {
+   -fx-background-color: #228B22;  /* Sfondo verde */
+   -fx-text-fill: #FF0000;         /* Testo rosso */
+}
+/* Pulsanti Black (testo nero) */
+.BLACK-roulette {
+   -fx-background-color: #228B22;  /* Sfondo verde */
+   -fx-text-fill: #000000;         /* Testo nero */
+}
+.rosso-roulette {
+   -fx-background-color: #B22222;
+   -fx-text-fill: white;
+   -fx-font-weight: bold;
+}
+/* Classe per i numeri neri */
+.nero-roulette {
+   -fx-background-color: #1A1A1A;
+   -fx-text-fill: white;
+   -fx-font-weight: bold;
+}
+/* Verde per lo zero (0 e 00) con hover */
+.btn-verde-zero {
+   -fx-background-color: #006633;  /* Sfondo verde scuro */
+   -fx-text-fill: white;           /* Testo bianco */
+}
+.btn-verde-zero:hover {
+   -fx-background-color: #004D26;  /* Sfondo verde ancora pi� scuro al passaggio del mouse */
+   -fx-cursor: hand;               /* Cursorre a mano */
+}
+/* Verde per pulsanti generici (Odd/Even, ecc.) con hover */
+.btn-verde-generico {
+   -fx-background-color: #228B22;  /* Sfondo verde foresta */
+   -fx-text-fill: white;           /* Testo bianco */
+}
+.btn-verde-generico:hover {
+   -fx-background-color: #1E711E;  /* Sfondo verde pi� scuro al passaggio del mouse */
+   -fx-cursor: hand;               /* Cursorre a mano */
+}
+/* Pulsanti Red (testo rosso) con hover */
+.btn-RED-roulette {
+   -fx-background-color: #228B22;  /* Sfondo verde */
+   -fx-text-fill: #FF0000;         /* Testo rosso */
+}
+.btn-RED-roulette:hover {
+   -fx-background-color: #1E711E;  /* Sfondo verde pi� scuro al passaggio del mouse */
+   -fx-text-fill: #CC0000;         /* Testo rosso scuro al passaggio del mouse */
+   -fx-cursor: hand;               /* Cursorre a mano */
+}
+/* Pulsanti Black (testo nero) con hover */
+.btn-BLACK-roulette {
+   -fx-background-color: #228B22;  /* Sfondo verde */
+   -fx-text-fill: #000000;         /* Testo nero */
+}
+.btn-BLACK-roulette:hover {
+   -fx-background-color: #1E711E;  /* Sfondo verde pi� scuro al passaggio del mouse */
+   -fx-text-fill: #333333;         /* Testo grigio scuro al passaggio del mouse */
+   -fx-cursor: hand;               /* Cursorre a mano */
+}
+/* Rosso con hover */
+.btn-rosso-roulette {
+   -fx-background-color: #B22222;
+   -fx-text-fill: white;
+   -fx-font-weight: bold;
+}
+.btn-rosso-roulette:hover {
+   -fx-background-color: #8B0000;  /* Sfondo rosso scuro al passaggio del mouse */
+   -fx-text-fill: #E0E0E0;         /* Testo grigio chiaro al passaggio del mouse */
+   -fx-cursor: hand;               /* Cursorre a mano */
+}
+/* Nero con hover */
+.btn-nero-roulette {
+   -fx-background-color: #1A1A1A;
+   -fx-text-fill: white;
+   -fx-font-weight: bold;
+}
+.btn-nero-roulette:hover {
+   -fx-background-color: #000000;  /* Sfondo nero completo al passaggio del mouse */
+   -fx-text-fill: #C0C0C0;         /* Testo grigio chiaro al passaggio del mouse */
+   -fx-cursor: hand;               /* Cursorre a mano */
+}
+@font-face {
+   src: url("Kanit-Medium.ttf");
+}
+.text-custom-font {
+   -fx-font-family: "Kanit Medium";
+   -fx-font-size: 20px;
+}
+/* Stile per il pulsante .ui-btn */
+.ui-btn {
+   -fx-pref-width: 9em;
+   -fx-pref-height: 3em;
+   -fx-background-color: rgb(41, 41, 41);
+   -fx-border-radius: 30em;
+   -fx-font-size: 16px;
+   -fx-font-family: Menlo, 'Roboto Mono', monospace;
+   -fx-border-width: 0;
+   -fx-cursor: hand;
+   -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 5);
+}
+.ui-btn:hover {
+   -fx-background-color: rgb(51, 51, 51);
+}
+.ui-btn:hover .text {
+   -fx-fill: #FAC921;
+}
+.ui-btn .text {
+   -fx-fill: white;
+}
+/* Stile per il BorderPane */
+.sfondo {
+   -fx-background-color: radial-gradient(center 50% 50%, radius 45%, white, #1a8449);
+}
+/* styles.css */
+.blood-button {
+   -fx-background-color: #6c757d; /* Colore di default (btn-secondary) */
+   -fx-text-fill: white;
+   -fx-font-size: 20px; /* Dimensione del font */
+   -fx-border-radius: 5px;
+   -fx-background-radius: 5px;
+   -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 2);
+   -fx-cursor: hand;
+}
+.blood-button:hover {
+   -fx-effect: dropshadow(gaussian, #dc143c, 10, 0, 0, 2); /* Ombra rossa */
+   -fx-background-color: #B22222;
+}
+
+
+

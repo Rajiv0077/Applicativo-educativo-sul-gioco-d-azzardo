@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: black; -fx-background-image: url('/resources/img/InstructionBG.png'); -fx-background-repeat: none; -fx-background-size: cover;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="slot.controller.InstructionController">
+   <children>
+      <Label alignment="CENTER" layoutX="128.0" layoutY="190.0" prefHeight="22.0" prefWidth="185.0" text="2x = 1.2x $" textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font></Label>
+      <Label alignment="CENTER" layoutX="128.0" layoutY="391.0" prefHeight="22.0" prefWidth="185.0" text="3x = 2x $" textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font></Label>
+      <Button fx:id="btnExit" alignment="CENTER" contentDisplay="CENTER" layoutX="414.0" layoutY="656.0" mnemonicParsing="false" onAction="#closeInstruction" prefHeight="50.0" prefWidth="373.0" style="-fx-background-color: black; -fx-font-weight: bold; -fx-font-size: 51px;" text="Esci" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="51.0" />
+         </font>
+      </Button>
+      <Label fx:id="lblInstruction" alignment="CENTER" layoutX="482.0" layoutY="55.0" prefHeight="69.0" prefWidth="236.0" style="-fx-font-weight: bold;" text="Istruzioni" textFill="WHITE">
+         <font>
+            <Font size="47.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="183.0" layoutY="297.0" prefHeight="22.0" prefWidth="75.0" style="-fx-font-weight: bold;" text="3X3:" textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font></Label>
+      <Label alignment="CENTER" layoutX="128.0" layoutY="140.0" prefHeight="22.0" prefWidth="185.0" style="-fx-font-weight: bold;" text="3X1:" textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="128.0" layoutY="349.0" prefHeight="22.0" prefWidth="185.0" text="2x = 1.2x $" textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="128.0" layoutY="605.0" prefHeight="22.0" prefWidth="185.0" text="4x = 3x $" textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="183.0" layoutY="498.0" prefHeight="22.0" prefWidth="75.0" style="-fx-font-weight: bold;" text="3X4:" textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="128.0" layoutY="562.0" prefHeight="22.0" prefWidth="185.0" text="3x = 2x $" textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="128.0" layoutY="225.0" prefHeight="22.0" prefWidth="185.0" text="3x = 5x $" textFill="WHITE" underline="true">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="128.0" layoutY="429.0" prefHeight="22.0" prefWidth="185.0" text="9x = 7.5x $" textFill="WHITE" underline="true">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="111.0" layoutY="653.0" prefHeight="50.0" prefWidth="207.0" text="12x = 10x $" textFill="WHITE" underline="true">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="55.0" prefHeight="50.0" prefWidth="236.0" style="-fx-font-weight: bold;" text="Moltiplicatori:" textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label layoutX="908.0" layoutY="55.0" prefHeight="50.0" prefWidth="225.0" style="-fx-font-weight: bold;" text="Modalità:" textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="508.0" layoutY="165.0" prefHeight="22.0" prefWidth="185.0" style="-fx-font-weight: bold;" text="Regole:" textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="415.0" layoutY="240.0" prefHeight="82.0" prefWidth="373.0" text="-Si vince quando escono simboli uguali nella stessa riga-" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="414.0" layoutY="341.0" prefHeight="50.0" prefWidth="373.0" text="-Si possono scegliere 3 modalità-" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="415.0" layoutY="545.0" prefHeight="50.0" prefWidth="373.0" text="-Senza soldi non si può giocare-" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="900.0" layoutY="143.0" prefHeight="22.0" prefWidth="185.0" style="-fx-font-weight: bold;" text="3X1:" textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="955.0" layoutY="300.0" prefHeight="22.0" prefWidth="75.0" style="-fx-font-weight: bold;" text="3X3:" textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="955.0" layoutY="501.0" prefHeight="22.0" prefWidth="75.0" style="-fx-font-weight: bold;" text="3X4:" textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="900.0" layoutY="193.0" prefHeight="22.0" prefWidth="185.0" text="3 slot " textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="875.0" layoutY="225.0" prefHeight="50.0" prefWidth="236.0" text="Jackpot: Facile" textFill="WHITE" underline="true">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="900.0" layoutY="361.0" prefHeight="22.0" prefWidth="185.0" text="9 slot " textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="843.0" layoutY="391.0" prefHeight="50.0" prefWidth="299.0" text="Jackpot: Difficile" textFill="WHITE" underline="true">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="900.0" layoutY="573.0" prefHeight="22.0" prefWidth="185.0" text="12 slot " textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="844.0" layoutY="605.0" prefHeight="50.0" prefWidth="299.0" text="Jackpot: Estremo" textFill="WHITE" underline="true">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="415.0" layoutY="408.0" prefHeight="115.0" prefWidth="373.0" text="-Ogni moltiplicatore si somma ad un altro in caso di più riuscite in più righe-" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

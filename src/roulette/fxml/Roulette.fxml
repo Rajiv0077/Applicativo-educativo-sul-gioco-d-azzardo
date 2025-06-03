@@ -1,0 +1,1179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.QuadCurve?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1920.0" style="-fx-background-image: url('/resources/img/gameChoiceMenuBG.jpg'); -fx-background-size: cover; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-padding: 50;" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="roulette.controllers.RouletteController">
+<top>
+  <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="200.0" minWidth="-Infinity" pickOnBounds="false" prefHeight="206.0" prefWidth="1540.0" style="-fx-spacing: 15; -fx-padding: -5;" BorderPane.alignment="CENTER">
+     <children>
+            <VBox alignment="CENTER" prefHeight="216.0">
+               <children>
+                  <HBox maxHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" style="-fx-padding: 30; -fx-spacing: 10;">
+                     <children>
+                    <Button fx:id="goBackBtn" mnemonicParsing="false" onAction="#goBack" style="-fx-font-size: 20px; -fx-background-color: crimson;" text="⬅ Back to Menu" />
+                    <Button fx:id="showStats" mnemonicParsing="false" onAction="#showStats" style="-fx-font-size: 20px; -fx-background-color: lightblue;" text="📊 Show Statistics" />
+                     </children>
+                  </HBox>
+              <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="100.0" minWidth="-Infinity" prefHeight="131.0" style="-fx-spacing: 10; -fx-background-color: darkgreen;">
+                 <children>
+                    <ImageView fitHeight="80.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                       <image>
+                          <Image url="@../../resources/img/chips1.png" />
+                       </image>
+                    </ImageView>
+                    <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" text=":" textFill="WHITE">
+                       <font>
+                          <Font size="64.0" />
+                       </font>
+                    </Label>
+                    <Label fx:id="lblMoney" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" text="0" textFill="WHITE">
+                       <font>
+                          <Font size="64.0" />
+                       </font>
+                    </Label>
+                    <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" text="\$" textFill="WHITE">
+                       <font>
+                          <Font size="64.0" />
+                       </font>
+                    </Label>
+                        <Label fx:id="resultLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="275.0">
+                           <font>
+                              <Font size="58.0" />
+                           </font>
+                        </Label>
+                 </children>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+              </HBox>
+               </children>
+            </VBox>
+            <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+        <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="115.0" prefWidth="474.0" style="-fx-padding: 30;" HBox.hgrow="ALWAYS">
+           <children>
+               <Label fx:id="lblPremi1" alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="348.0" text="Press 1 to spin the wheel" textFill="WHITE" HBox.hgrow="ALWAYS">
+                  <font>
+                     <Font size="30.0" />
+                  </font>
+               </Label>
+           </children>
+        </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Group fx:id="messageGroup" visible="false">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="150.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
+                        <Polygon fill="WHITE" layoutX="300.0" layoutY="66.0" points="-24.199981689453125, 84.0, 7.20001220703125, 95.80000305175781, 3.0517578125E-5, 57.399993896484375" stroke="BLACK" strokeType="INSIDE" />
+                        <Line endX="54.5999755859375" endY="20.199996948242188" layoutX="244.0" layoutY="105.0" startX="33.999969482421875" startY="43.59999084472656" stroke="WHITE" strokeWidth="1.7" />
+                        <Line endX="-16.0" layoutX="317.0" layoutY="124.0" rotate="90.0" startX="-18.800018310546875" />
+                        <Line endX="0.03929279372096062" endY="1.497520923614502" layoutX="283.0" layoutY="148.0" rotate="15.7" startX="-10.045768737792969" startY="1.102697491645813" stroke="WHITE" strokeWidth="0.6" />
+                        <Label fx:id="botText" contentDisplay="TOP" layoutX="20.0" layoutY="17.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="115.0" prefWidth="265.0" style="-fx-label-padding: 4;" wrapText="true">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Group>
+                  <Group>
+                     <children>
+                        <ImageView fitHeight="225.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resources/img/dealer.png" />
+                           </image>
+                        </ImageView>
+                        <QuadCurve fx:id="smile" controlY="-35.0" endX="15.0" endY="-15.0" fill="#ffffff00" layoutX="112.0" layoutY="121.0" rotate="180.0" startX="-15.0" startY="-15.0" stroke="BLACK" strokeType="INSIDE" />
+                     </children>
+                  </Group>
+               </children>
+            </HBox>
+     </children>
+  </HBox>
+</top>
+<bottom>
+  <HBox alignment="CENTER_RIGHT" minHeight="81.0" minWidth="-Infinity" pickOnBounds="false" prefHeight="162.0" prefWidth="1540.0" style="-fx-padding: 20; -fx-spacing: 20;" BorderPane.alignment="CENTER_RIGHT">
+     <children>
+        <Label fx:id="lblNU" text="Number Drawn:" textFill="WHITE" visible="false">
+           <font>
+              <Font size="60.0" />
+           </font>
+        </Label>
+        <Label fx:id="lblNumeroUscito" prefHeight="94.0" prefWidth="240.0">
+           <font>
+              <Font size="64.0" />
+           </font>
+        </Label>
+          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0">
+             <children>
+                <GridPane fx:id="ultimiNumeri" hgap="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-padding: 1;" vgap="1.0">
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                    <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                      <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                      <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                      <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                      <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                      <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                      <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                      <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                      <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints vgrow="ALWAYS" />
+                      <RowConstraints vgrow="ALWAYS" />
+                      <RowConstraints vgrow="ALWAYS" />
+                  </rowConstraints>
+                   <children>
+                      <Button alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: black;" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                      <Button alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: black;" GridPane.columnIndex="9" />
+                      <Button alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: black;" GridPane.columnIndex="7" />
+                      <Button alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: black;" GridPane.columnIndex="5" />
+                      <Button alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: black;" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+                      <Button alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                      <Button alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: black;" GridPane.rowIndex="2" />
+                      <Button alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: black;" GridPane.columnIndex="9" GridPane.rowIndex="2" />
+                      <Button alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: black;" GridPane.columnIndex="4" />
+                      <Button alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+                      <Button alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: black;" GridPane.columnIndex="6" />
+                      <Button alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: black;" GridPane.columnIndex="8" />
+                      <Button alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                      <Button alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                      <Button alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                      <Button alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: black;" GridPane.columnIndex="2" />
+                      <Button alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                      <Button alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: black;" GridPane.columnIndex="1" />
+                      <Button alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: black;" GridPane.columnIndex="3" />
+                      <Button alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: black;" />
+                   </children>
+                </GridPane>
+             </children>
+          </HBox>
+     </children>
+     <opaqueInsets>
+        <Insets />
+     </opaqueInsets>
+     <padding>
+        <Insets right="10.0" />
+     </padding></HBox>
+</bottom>
+<center>
+  <VBox fx:id="tableBox" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="607.0" style="-fx-alignment: center;" BorderPane.alignment="CENTER">
+     <children>
+        <GridPane fx:id="gridPaneTable" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="390.0">
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.20001983642578" minWidth="0.0" prefWidth="0.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="201.60000000000002" minWidth="10.0" prefWidth="146.19998779296876" />
+              <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="0.0" prefWidth="150.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+           <children>
+              <HBox alignment="CENTER" pickOnBounds="false" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS">
+                 <children>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefWidth="80.0" styleClass="btn-verde-zero" text="00">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefWidth="80.0" styleClass="btn-verde-zero" text="0">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </HBox>
+              <HBox alignment="CENTER" pickOnBounds="false" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="13">
+                 <children>
+                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleRow1" prefHeight="50.0" prefWidth="100.0" styleClass="btn-verde-generico" text="2 to 1">
+                       <font>
+                          <Font size="13.0" />
+                       </font>
+                    </Button>
+                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleRow2" prefHeight="50.0" prefWidth="100.0" styleClass="btn-verde-generico" text="2 to 1">
+                       <font>
+                          <Font size="13.0" />
+                       </font>
+                    </Button>
+                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleRow3" prefHeight="50.0" prefWidth="100.0" styleClass="btn-verde-generico" text="2 to 1">
+                       <font>
+                          <Font size="13.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </HBox>
+              <HBox alignment="CENTER_LEFT" pickOnBounds="false" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="9" />
+              <HBox alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="75.0" prefWidth="195.0" GridPane.rowIndex="10">
+                 <children>
+                    <Button alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleOddEven" prefHeight="40.5" prefWidth="72.5" rotate="-90.0" styleClass="btn-verde-generico" text="ODD">
+                       <font>
+                          <Font size="16.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </HBox>
+              <HBox alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="75.0" prefWidth="194.0" GridPane.rowIndex="8">
+                 <children>
+                    <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleColor" prefHeight="40.0" prefWidth="72.5" rotate="-90.0" styleClass="btn-BLACK-roulette" text="BLACK">
+                       <font>
+                          <Font size="16.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </HBox>
+              <HBox alignment="CENTER_RIGHT" pickOnBounds="false" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="7" />
+              <HBox alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="75.0" prefWidth="193.0" GridPane.rowIndex="6">
+                 <children>
+                    <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleColor" prefHeight="40.0" prefWidth="72.5" rotate="-90.0" styleClass="btn-RED-roulette" text="RED" textFill="RED">
+                       <font>
+                          <Font size="16.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </HBox>
+              <HBox alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="75.0" prefWidth="191.0" GridPane.rowIndex="4">
+                 <children>
+                    <Button alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleOddEven" prefHeight="38.0" prefWidth="80.0" rotate="-90.0" styleClass="btn-verde-generico" text="EVEN">
+                       <font>
+                          <Font size="16.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </HBox>
+              <HBox alignment="CENTER_RIGHT" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="43.0" prefWidth="73.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+              <HBox alignment="CENTER" pickOnBounds="false" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                 <children>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-rosso-roulette" text="1">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-nero-roulette" text="2">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-rosso-roulette" text="3">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </HBox>
+              <HBox alignment="CENTER" pickOnBounds="false" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                 <children>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-nero-roulette" text="4">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-rosso-roulette" text="5">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-nero-roulette" text="6">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </HBox>
+              <HBox alignment="CENTER" pickOnBounds="false" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                 <children>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-rosso-roulette" text="7">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-nero-roulette" text="8">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-rosso-roulette" text="9">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </HBox>
+              <HBox alignment="CENTER" pickOnBounds="false" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                 <children>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-nero-roulette" text="10">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-nero-roulette" text="11">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-rosso-roulette" text="12">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </HBox>
+              <HBox alignment="CENTER" pickOnBounds="false" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                 <children>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-nero-roulette" text="13">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-rosso-roulette" text="14">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-nero-roulette" text="15">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </HBox>
+              <HBox alignment="CENTER" pickOnBounds="false" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                 <children>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-rosso-roulette" text="16">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-nero-roulette" text="17">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-rosso-roulette" text="18">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </HBox>
+              <HBox alignment="CENTER" pickOnBounds="false" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                 <children>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-rosso-roulette" text="19">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-nero-roulette" text="20">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-rosso-roulette" text="21">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </HBox>
+              <HBox alignment="CENTER" pickOnBounds="false" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="8">
+                 <children>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-nero-roulette" text="22">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-rosso-roulette" text="23">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-nero-roulette" text="24">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </HBox>
+              <HBox alignment="CENTER" pickOnBounds="false" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="12">
+                 <children>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-rosso-roulette" text="34">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-nero-roulette" text="35">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-rosso-roulette" text="36">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </HBox>
+              <HBox alignment="CENTER" pickOnBounds="false" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="11">
+                 <children>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-nero-roulette" text="31">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-rosso-roulette" text="32">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-nero-roulette" text="33">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </HBox>
+              <HBox alignment="CENTER" pickOnBounds="false" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="10">
+                 <children>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-nero-roulette" text="28">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-nero-roulette" text="29">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-rosso-roulette" text="30">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </HBox>
+              <HBox alignment="CENTER" pickOnBounds="false" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="9">
+                 <children>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-rosso-roulette" text="25">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-nero-roulette" text="26">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#handleNum" prefHeight="50.0" prefWidth="100.0" styleClass="btn-rosso-roulette" text="27">
+                       <font>
+                          <Font size="17.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </HBox>
+              <VBox alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="80.0" prefWidth="262.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                 <children>
+                    <Button alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleTwelves" prefHeight="43.0" prefWidth="148.0" rotate="-90.0" styleClass="btn-verde-generico" text="1st 12">
+                       <font>
+                          <Font size="24.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </VBox>
+              <VBox alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="80.0" prefWidth="262.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                 <children>
+                    <Button alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleTwelves" prefHeight="43.0" prefWidth="152.0" rotate="-90.0" styleClass="btn-verde-generico" text="3rd 12">
+                       <font>
+                          <Font size="24.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </VBox>
+              <VBox alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="80.0" prefWidth="261.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                 <children>
+                    <Button alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleTwelves" prefHeight="43.0" prefWidth="145.0" rotate="-90.0" styleClass="btn-verde-generico" text="2nd 12">
+                       <font>
+                          <Font size="24.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </VBox>
+              <HBox alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="75.0" prefWidth="178.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                 <children>
+                    <Button alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleEighteen" prefHeight="38.0" prefWidth="75.0" rotate="-90.0" styleClass="btn-verde-generico" text="1 to 18">
+                       <font>
+                          <Font size="15.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </HBox>
+              <HBox alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="75.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                 <children>
+                    <Button alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleEighteen" prefHeight="38.0" prefWidth="78.0" rotate="-90.0" styleClass="btn-verde-generico" text="19 to 36">
+                       <font>
+                          <Font size="14.0" />
+                       </font>
+                    </Button>
+                 </children>
+              </HBox>
+           </children>
+        </GridPane>
+     </children>
+  </VBox>
+</center>
+<right>
+  <HBox fx:id="ruotaBox" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="802.0" BorderPane.alignment="CENTER">
+     <children>
+        <StackPane prefHeight="540.0" prefWidth="655.0">
+           <children>
+              <StackPane prefHeight="150.0" prefWidth="200.0">
+                 <children>
+                    <Group>
+                       <children>
+                          <Circle radius="260.0" stroke="#a99d93" strokeType="INSIDE" strokeWidth="5.0">
+                             <fill>
+                                <RadialGradient centerX="0.5" centerY="0.5" cycleMethod="REPEAT" focusAngle="4.29" proportional="false" radius="0.21559631715127087">
+                                   <stops>
+                                      <Stop>
+                                         <color>
+                                            <Color red="0.20000000298023224" green="0.12426666915416718" blue="0.057999998331069946" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="0.006729475100942127">
+                                         <color>
+                                            <Color red="0.20000000298023224" green="0.12426666915416718" blue="0.057999998331069946" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="0.7935593999277814">
+                                         <color>
+                                            <Color red="0.20000000298023224" green="0.12426666915416718" blue="0.057999998331069946" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="0.8717985753208811">
+                                         <color>
+                                            <Color red="0.3700000047683716" green="0.23680000007152557" blue="0.10360000282526016" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="0.881856678593704">
+                                         <color>
+                                            <Color red="0.20000000298023224" green="0.12426666915416718" blue="0.057999998331069946" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="0.8891868824475593">
+                                         <color>
+                                            <Color red="0.3700000047683716" green="0.23427166044712067" blue="0.10729999840259552" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="0.8966155664248433">
+                                         <color>
+                                            <Color red="0.20000000298023224" green="0.12426666915416718" blue="0.057999998331069946" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="0.924695532285067">
+                                         <color>
+                                            <Color red="0.20000000298023224" green="0.12426666915416718" blue="0.057999998331069946" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="0.9380428716803992">
+                                         <color>
+                                            <Color red="0.3799999952316284" green="0.24320000410079956" blue="0.10639999806880951" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="0.9421002527656501">
+                                         <color>
+                                            <Color red="0.3799999952316284" green="0.24320000410079956" blue="0.10639999806880951" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="0.9641105603519018">
+                                         <color>
+                                            <Color red="0.20000000298023224" green="0.12426666915416718" blue="0.057999998331069946" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="0.9707579686833205">
+                                         <color>
+                                            <Color red="0.3799999952316284" green="0.24320000410079956" blue="0.10639999806880951" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="0.9922299182614971">
+                                         <color>
+                                            <Color red="0.20000000298023224" green="0.12559999525547028" blue="0.0560000017285347" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="1.0">
+                                         <color>
+                                            <Color red="0.20000000298023224" green="0.12559999525547028" blue="0.0560000017285347" />
+                                         </color>
+                                      </Stop>
+                                   </stops>
+                                </RadialGradient>
+                             </fill>
+                          </Circle>
+                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a99d93" height="15.0" layoutX="225.0" layoutY="-9.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a99d93" height="15.0" layoutX="-241.0" layoutY="-8.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a99d93" height="15.0" layoutX="-8.0" layoutY="-242.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a99d93" height="15.0" layoutX="-8.0" layoutY="224.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a99d93" height="15.0" layoutX="-207.0" layoutY="102.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a99d93" height="15.0" layoutX="-125.0" layoutY="189.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a99d93" height="15.0" layoutX="199.0" layoutY="100.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a99d93" height="15.0" layoutX="110.0" layoutY="189.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a99d93" height="15.0" layoutX="110.0" layoutY="-211.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a99d93" height="15.0" layoutX="-125.0" layoutY="-210.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a99d93" height="15.0" layoutX="199.0" layoutY="-114.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a99d93" height="15.0" layoutX="-208.0" layoutY="-125.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                       </children>
+                    </Group>
+                 </children>
+              </StackPane>
+              <StackPane fx:id="roulettePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="250.0">
+                 <children>
+                    <Circle fill="transparent" radius="204.0" stroke="#a99d93" strokeWidth="3.0" />
+                    <Line endX="0" endY="-180" startX="0" startY="-220" stroke="black" strokeWidth="3" />
+                    <Group fx:id="sezioniGroup" autoSizeChildren="false" StackPane.alignment="CENTER">
+                       <children>
+                          <Arc centerX="0" centerY="0" fill="#006633" length="9.4737" radiusX="200" radiusY="200" startAngle="0" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="green" length="9.4737" radiusX="200" radiusY="200" startAngle="180" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="#1a1a1a" length="9.4737" radiusX="200" radiusY="200" startAngle="9.4737" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="FIREBRICK" length="9.4737" radiusX="200" radiusY="200" startAngle="18.9474" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="#1a1a1a" length="9.4737" radiusX="200" radiusY="200" startAngle="28.4211" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="FIREBRICK" length="9.4737" radiusX="200" radiusY="200" startAngle="37.8947" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="#1a1a1a" length="9.4737" radiusX="200" radiusY="200" startAngle="47.3684" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="FIREBRICK" length="9.4737" radiusX="200" radiusY="200" startAngle="56.8421" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="#1a1a1a" length="9.4737" radiusX="200" radiusY="200" startAngle="66.3158" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="FIREBRICK" length="9.4737" radiusX="200" radiusY="200" startAngle="75.7895" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="#1a1a1a" length="9.4737" radiusX="200" radiusY="200" startAngle="85.2632" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="FIREBRICK" length="9.4737" radiusX="200" radiusY="200" startAngle="94.7368" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="#1a1a1a" length="9.4737" radiusX="200" radiusY="200" startAngle="104.2105" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="FIREBRICK" length="9.4737" radiusX="200" radiusY="200" startAngle="113.6842" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="#1a1a1a" length="9.4737" radiusX="200" radiusY="200" startAngle="123.1579" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="FIREBRICK" length="9.4737" radiusX="200" radiusY="200" startAngle="132.6316" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="#1a1a1a" length="9.4737" radiusX="200" radiusY="200" startAngle="142.1053" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="FIREBRICK" length="9.4737" radiusX="200" radiusY="200" startAngle="151.5789" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="#1a1a1a" length="9.4737" radiusX="200" radiusY="200" startAngle="161.0526" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="FIREBRICK" length="9.4737" radiusX="200" radiusY="200" startAngle="170.5263" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="#006633" length="9.4737" radiusX="200" radiusY="200" startAngle="180" stroke="BLACK" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="FIREBRICK" length="9.4737" radiusX="200" radiusY="200" startAngle="189.4737" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="#1a1a1a" length="9.4737" radiusX="200" radiusY="200" startAngle="198.9474" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="FIREBRICK" length="9.4737" radiusX="200" radiusY="200" startAngle="208.4211" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="#1a1a1a" length="9.4737" radiusX="200" radiusY="200" startAngle="217.8947" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="FIREBRICK" length="9.4737" radiusX="200" radiusY="200" startAngle="227.3684" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="#1a1a1a" length="9.4737" radiusX="200" radiusY="200" startAngle="236.8421" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="FIREBRICK" length="9.4737" radiusX="200" radiusY="200" startAngle="246.3158" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="#1a1a1a" length="9.4737" radiusX="200" radiusY="200" startAngle="255.7895" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="FIREBRICK" length="9.4737" radiusX="200" radiusY="200" startAngle="265.2632" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="#1a1a1a" length="9.4737" radiusX="200" radiusY="200" startAngle="274.7368" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="FIREBRICK" length="9.4737" radiusX="200" radiusY="200" startAngle="284.2105" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="#1a1a1a" length="9.4737" radiusX="200" radiusY="200" startAngle="293.6842" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="FIREBRICK" length="9.4737" radiusX="200" radiusY="200" startAngle="303.1579" type="ROUND" />
+                          <Text fill="white" layoutY="10.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="32" x="50" y="170">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Arc centerX="0" centerY="0" fill="#1a1a1a" length="9.4737" radiusX="200" radiusY="200" startAngle="312.6316" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="FIREBRICK" length="9.4737" radiusX="200.0" radiusY="200.0" startAngle="322.1053" type="ROUND" />
+                          <Text fill="white" layoutX="-9.0" layoutY="10.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="34" x="-60" y="170">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Arc centerX="0" centerY="0" fill="#1a1a1a" length="9.4737" radiusX="200" radiusY="200" startAngle="331.5789" type="ROUND" />
+                          <Arc centerX="0" centerY="0" fill="FIREBRICK" length="9.4737" radiusX="200" radiusY="200" startAngle="341.0526" type="ROUND" />
+                          <Text fill="white" layoutX="-181.0" layoutY="-159.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="00" x="-10" y="180">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Arc centerX="0" centerY="0" fill="#1a1a1a" layoutX="-5.0" length="9.4737" radiusX="205.0" radiusY="200.0" startAngle="-9.4737" type="ROUND">
+                             <rotationAxis>
+                                <Point3D />
+                             </rotationAxis>
+                          </Arc>
+                          <Text fill="white" layoutX="75.0" layoutY="109.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="2" x="100" y="-150">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="-15.0" layoutY="-8.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="28" x="190" y="30">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="76.0" layoutY="-97.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="9" x="100" y="150">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="-9.0" layoutY="159.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="26" x="170" y="-80">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="136.0" layoutY="-50.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="11" x="-5" y="180">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="-57.0" layoutY="73.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="7" x="170" y="80">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="189.0" layoutY="319.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="20" x="-110" y="-150">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="212.0" layoutY="218.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="17" x="-190" y="-30">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="-195.0" layoutY="219.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="5" x="190" y="-30">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="-34.0" layoutY="367.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="22" x="-5" y="-180">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="83.0" layoutY="88.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="15" x="-180" y="80">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="-259.0" layoutY="272.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="3" x="140" y="-120">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="-244.0" layoutY="279.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="24" x="100" y="-150">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="-9.0" layoutY="-14.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="36" x="-150" y="120">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="-66.0" layoutY="-71.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="13" x="-110" y="150">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="-235.0" layoutY="222.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="1" x="50" y="-170">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="-379.0" layoutY="19.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="27" x="190" y="-30">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="-237.0" layoutY="-212.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="10" x="50" y="170">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="-316.0" layoutY="52.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="25" x="140" y="-120">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="-329.0" layoutY="-174.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="29" x="170" y="80">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="8.0" layoutY="-13.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="30" x="140" y="120">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="-259.0" layoutY="-261.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="8" x="140" y="120">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="53.0" layoutY="-38.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="19" x="-150" y="-120">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="-169.0" layoutY="-319.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="31" x="100" y="150">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Circle radius="82.5" stroke="BLACK" strokeType="INSIDE">
+                             <fill>
+                                <LinearGradient endX="1.0" endY="1.0">
+                                   <stops>
+                                      <Stop>
+                                         <color>
+                                            <Color red="0.6000000238418579" green="0.45362964272499084" blue="0.05111110955476761" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="0.16285329744279947">
+                                         <color>
+                                            <Color red="0.6000000238418579" green="0.45362964272499084" blue="0.05111110955476761" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="1.0">
+                                         <color>
+                                            <Color red="1.0" green="0.8232098817825317" blue="0.33703702688217163" />
+                                         </color>
+                                      </Stop>
+                                   </stops>
+                                </LinearGradient>
+                             </fill>
+                             </Circle>
+                          <Line endX="110.0" layoutX="-56.0" stroke="#9c6e05" strokeWidth="5.0">
+                             <rotationAxis>
+                                <Point3D />
+                             </rotationAxis>
+                          </Line>
+                          <Circle layoutX="-55.0" layoutY="-1.0" radius="7.5" stroke="BLACK" strokeType="INSIDE">
+                             <fill>
+                                <LinearGradient endX="1.0" endY="1.0" startX="0.09090909226374193">
+                                   <stops>
+                                      <Stop>
+                                         <color>
+                                            <Color red="0.6117647290229797" green="0.4313725531101227" blue="0.019607843831181526" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="0.006729475100942127">
+                                         <color>
+                                            <Color red="0.6117647290229797" green="0.4313725531101227" blue="0.019607843831181526" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="0.1785280504218232">
+                                         <color>
+                                            <Color red="0.6117647290229797" green="0.42352941632270813" blue="0.0235294122248888" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="1.0">
+                                         <color>
+                                            <Color red="0.8736842274665833" green="0.6288369297981262" blue="0.13914230465888977" />
+                                         </color>
+                                      </Stop>
+                                   </stops>
+                                </LinearGradient>
+                             </fill>
+                             </Circle>
+                          <Circle layoutX="54.0" radius="7.5" stroke="BLACK" strokeType="INSIDE">
+                             <fill>
+                                <LinearGradient endX="1.0" endY="1.0" startX="0.09090909226374193">
+                                   <stops>
+                                      <Stop>
+                                         <color>
+                                            <Color red="0.6117647290229797" green="0.4313725531101227" blue="0.019607843831181526" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="0.006729475100942127">
+                                         <color>
+                                            <Color red="0.6117647290229797" green="0.4313725531101227" blue="0.019607843831181526" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="0.1785280504218232">
+                                         <color>
+                                            <Color red="0.6117647290229797" green="0.42352941632270813" blue="0.0235294122248888" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="1.0">
+                                         <color>
+                                            <Color red="0.8736842274665833" green="0.6288369297981262" blue="0.13914230465888977" />
+                                         </color>
+                                      </Stop>
+                                   </stops>
+                                </LinearGradient>
+                             </fill>
+                             </Circle>
+                          <Line endX="110.0" layoutX="-56.0" rotate="-90.0" stroke="#9c6e05" strokeWidth="5.0" />
+                          <Circle layoutX="-1.0" layoutY="57.0" radius="7.5" rotate="-90.0" stroke="BLACK" strokeType="INSIDE">
+                             <fill>
+                                <LinearGradient endX="1.0" endY="1.0" startX="0.09090909226374193">
+                                   <stops>
+                                      <Stop>
+                                         <color>
+                                            <Color red="0.6117647290229797" green="0.4313725531101227" blue="0.019607843831181526" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="0.006729475100942127">
+                                         <color>
+                                            <Color red="0.6117647290229797" green="0.4313725531101227" blue="0.019607843831181526" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="0.1785280504218232">
+                                         <color>
+                                            <Color red="0.6117647290229797" green="0.42352941632270813" blue="0.0235294122248888" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="1.0">
+                                         <color>
+                                            <Color red="0.8736842274665833" green="0.6288369297981262" blue="0.13914230465888977" />
+                                         </color>
+                                      </Stop>
+                                   </stops>
+                                </LinearGradient>
+                             </fill>
+                             </Circle>
+                          <Circle layoutX="-1.0" layoutY="-57.0" radius="7.5" rotate="-90.0" stroke="BLACK" strokeType="INSIDE">
+                             <fill>
+                                <LinearGradient endX="1.0" endY="1.0" startX="0.09090909226374193">
+                                   <stops>
+                                      <Stop>
+                                         <color>
+                                            <Color red="0.6117647290229797" green="0.4313725531101227" blue="0.019607843831181526" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="0.006729475100942127">
+                                         <color>
+                                            <Color red="0.6117647290229797" green="0.4313725531101227" blue="0.019607843831181526" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="0.1785280504218232">
+                                         <color>
+                                            <Color red="0.6117647290229797" green="0.42352941632270813" blue="0.0235294122248888" />
+                                         </color>
+                                      </Stop>
+                                      <Stop offset="1.0">
+                                         <color>
+                                            <Color red="0.8736842274665833" green="0.6288369297981262" blue="0.13914230465888977" />
+                                         </color>
+                                      </Stop>
+                                   </stops>
+                                </LinearGradient>
+                             </fill>
+                             </Circle>
+                          <Text fill="white" layoutX="141.0" layoutY="-98.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="18" x="-180" y="-80">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="-194.0" layoutY="-209.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="6" x="190" y="30">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="82.0" layoutY="-7.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="21" x="-60" y="-170">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="55.0" layoutY="-348.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="33" x="-5" y="180">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="269.0" layoutY="-185.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="16" x="-190" y="30">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="-62.0" layoutY="-61.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="4" x="170" y="-80">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="76.0" layoutY="53.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="23" x="50" y="-170">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="258.0" layoutY="-244.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="35" x="-110" y="150">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="311.0" layoutY="-188.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="14" x="-150" y="120">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="189.0" layoutY="170.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="0" x="-5" y="-180">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                          <Text fill="white" layoutX="-84.0" layoutY="-287.0" style="-fx-font-size: 16;" styleClass="text-custom-font" text="12" x="-60" y="170">
+                             <font>
+                                <Font size="13.0" />
+                             </font>
+                          </Text>
+                             <Rectangle fx:id="r0" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="175.0" layoutY="-28.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="169.0" layoutY="-59.0" opacity="0.0" rotate="-15.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r14" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="158.0" layoutY="-88.0" opacity="0.0" rotate="-30.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r35" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="143.0" layoutY="-115.0" opacity="0.0" rotate="50.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r23" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="125.0" layoutY="-139.0" opacity="0.0" rotate="40.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r4" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="101.0" layoutY="-161.0" opacity="0.0" rotate="30.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r16" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="75.0" layoutY="-177.0" opacity="0.0" rotate="20.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r33" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="48.0" layoutY="-190.0" opacity="0.0" rotate="15.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r21" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="18.0" layoutY="-197.0" opacity="0.0" rotate="7.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r6" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="-13.0" layoutY="-200.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r18" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="-44.0" layoutY="-198.0" opacity="0.0" rotate="-10.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r31" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="-74.0" layoutY="-191.0" opacity="0.0" rotate="-16.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r19" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="-103.0" layoutY="-179.0" opacity="0.0" rotate="58.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r8" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="-127.0" layoutY="-160.0" opacity="0.0" rotate="49.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r12" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="-148.0" layoutY="-137.0" opacity="0.0" rotate="40.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r29" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="-167.0" layoutY="-113.0" opacity="0.0" rotate="30.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r25" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="-182.0" layoutY="-87.0" opacity="0.0" rotate="20.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r10" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="-192.0" layoutY="-58.0" opacity="0.0" rotate="10.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r27" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="-197.0" layoutY="-28.0" opacity="0.0" rotate="5.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r00" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="-197.0" layoutY="3.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="-193.0" layoutY="33.0" opacity="0.0" rotate="76.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r13" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="-183.0" layoutY="62.0" opacity="0.0" rotate="70.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r36" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="-167.0" layoutY="88.0" opacity="0.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r24" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="-150.0" layoutY="113.0" opacity="0.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r3" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="-127.0" layoutY="135.0" opacity="0.0" rotate="30.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r15" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="-101.0" layoutY="151.0" opacity="0.0" rotate="25.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r34" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="-73.0" layoutY="164.0" opacity="0.0" rotate="20.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r22" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="-44.0" layoutY="171.0" opacity="0.0" rotate="10.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r5" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="-13.0" layoutY="174.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r17" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="18.0" layoutY="170.0" opacity="0.0" rotate="-7.5" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r32" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="47.0" layoutY="162.0" opacity="0.0" rotate="-15.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r20" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="76.0" layoutY="152.0" opacity="0.0" rotate="-30.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r7" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="103.0" layoutY="136.0" opacity="0.0" rotate="50.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r11" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="125.0" layoutY="115.0" opacity="0.0" rotate="40.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r30" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="141.0" layoutY="88.0" opacity="0.0" rotate="32.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r26" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="156.0" layoutY="61.0" opacity="0.0" rotate="29.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r9" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="168.0" layoutY="34.0" opacity="0.0" rotate="18.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                             <Rectangle fx:id="r28" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="171.0" layoutY="3.0" opacity="0.0" rotate="10.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                       </children>
+                    </Group>
+                    <Circle radius="12.5" stroke="BLACK" strokeType="INSIDE">
+                       <fill>
+                          <LinearGradient endX="1.0" endY="1.0" startX="0.09090909226374193">
+                             <stops>
+                                <Stop>
+                                   <color>
+                                      <Color red="0.6117647290229797" green="0.4313725531101227" blue="0.019607843831181526" />
+                                   </color>
+                                </Stop>
+                                <Stop offset="0.006729475100942127">
+                                   <color>
+                                      <Color red="0.6117647290229797" green="0.4313725531101227" blue="0.019607843831181526" />
+                                   </color>
+                                </Stop>
+                                <Stop offset="0.1785280504218232">
+                                   <color>
+                                      <Color red="0.6117647290229797" green="0.42352941632270813" blue="0.0235294122248888" />
+                                   </color>
+                                </Stop>
+                                <Stop offset="1.0">
+                                   <color>
+                                      <Color red="0.8745098114013672" green="0.6274510025978088" blue="0.13725490868091583" />
+                                   </color>
+                                </Stop>
+                             </stops>
+                          </LinearGradient>
+                       </fill>
+                       </Circle>
+                 </children>
+              </StackPane>
+               <StackPane prefHeight="150.0" prefWidth="655.0">
+                  <children>
+                     <Group fx:id="pallinaGroup">
+                        <children>
+                           <Circle fill="DODGERBLUE" layoutX="14.0" opacity="0.0" radius="250.0" stroke="BLACK" strokeType="INSIDE" />
+                           <Circle fx:id="pallina" layoutX="165.0" layoutY="-12.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0">
+                              <fill>
+                                 <LinearGradient endX="1.0" endY="1.0" startX="0.5047619047619047" startY="0.5285714285714286">
+                                    <stops>
+                                       <Stop color="WHITE" />
+                                       <Stop color="#d0c8c8" offset="0.5019157088122606" />
+                                       <Stop color="#d0c8c8" offset="1.0" />
+                                    </stops>
+                                 </LinearGradient>
+                              </fill>
+                           </Circle>
+                        </children>
+                     </Group>
+                  </children>
+               </StackPane>
+           </children>
+        </StackPane>
+     </children>
+  </HBox>
+</right>
+<left>
+  <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="632.0" prefWidth="297.0" style="-fx-padding: 15; -fx-spacing: 50;" BorderPane.alignment="CENTER">
+     <children>
+        <ComboBox fx:id="betComboBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: white;" />
+        <Button fx:id="allInButton" alignment="CENTER" mnemonicParsing="false" onAction="#allInButton" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: white;" text="ALL IN" />
+        <VBox fx:id="inputBox" alignment="CENTER" prefWidth="193.0" style="-fx-spacing: 5;">
+           <children>
+              <Label text="Personalized bet:" textFill="WHITE">
+                 <font>
+                    <Font size="18.0" />
+                 </font>
+                     <VBox.margin>
+                        <Insets right="20.0" />
+                     </VBox.margin>
+              </Label>
+              <HBox alignment="CENTER" prefWidth="200.0" style="-fx-spacing: 2;">
+                 <children>
+                    <TextField fx:id="inputBet" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="125.0" promptText="0">
+                       <font>
+                          <Font size="14.0" />
+                       </font>
+                    </TextField>
+                    <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                       <image>
+                          <Image url="@../../resources/img/InputChip.png" />
+                       </image>
+                    </ImageView>
+                 </children>
+              </HBox>
+              <Button fx:id="inviaButton" mnemonicParsing="false" onAction="#inviaButton" prefHeight="53.0" prefWidth="269.0" styleClass="gira-button" text="Confirm personalized bet">
+                 <font>
+                    <Font size="11.0" />
+                 </font>
+              </Button>
+           </children>
+        </VBox>
+     </children>
+  </VBox>
+</left>
+</BorderPane>

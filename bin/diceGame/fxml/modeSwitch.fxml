@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="1080" prefWidth="1920" style="-fx-padding: 50; -fx-background-image: url('/resources/img/diceSwitchMenu.png'); -fx-background-size: cover; -fx-background-position: center; -fx-background-repeat: no-repeat;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="diceGame.controllers.DiceGameModeController">
+    
+    <center>
+        <VBox alignment="CENTER" prefHeight="967.0" prefWidth="1315.0" spacing="20" style="-fx-max-width: 500; -fx-max-height: 600;">
+            <Button fx:id="oneDiceButton" onAction="#switchToOneDiceMode" prefHeight="80" prefWidth="300" style="-fx-background-color: green;" text="1 Dice Mode" textFill="WHITE">
+            <font>
+               <Font name="Cascadia Code Regular" size="29.0" />
+            </font></Button>
+         <Button fx:id="twoDiceButton" onAction="#switchToTwoDiceMode" prefHeight="80" prefWidth="300" style="-fx-background-color: green;" text="2 Dice Mode" textFill="WHITE">
+            <font>
+               <Font name="Cascadia Code Regular" size="29.0" />
+            </font>
+         </Button>
+         <Button fx:id="threeDiceButton" onAction="#switchToThreeDiceMode" prefHeight="80" prefWidth="300" style="-fx-background-color: green;" text="3 Dice Mode" textFill="WHITE">
+            <font>
+               <Font name="Cascadia Code Regular" size="29.0" />
+            </font>
+         </Button>
+         <Button fx:id="fourDiceButton" onAction="#switchToFourDiceMode" prefHeight="80" prefWidth="300" style="-fx-background-color: green;" text="4 Dice Mode" textFill="WHITE">
+            <font>
+               <Font name="Cascadia Code Regular" size="29.0" />
+            </font>
+         </Button>
+         <Region prefHeight="118.0" prefWidth="500.0" />
+        </VBox>
+    </center>
+   <top>
+      <HBox prefHeight="73.0" prefWidth="1880.0" style="-fx-alignment: center;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center; -fx-padding: 20; -fx-min-width: 280;">
+               <children>
+                	<Button fx:id="backButton" onAction="#turnToMenu" style="-fx-font-size: 22px; -fx-padding: 10px 20px; -fx-background-color: crimson;" text="⬅ Back to Menu" textFill="WHITE" />
+               </children>
+            </HBox>
+            <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+   </top>
+
+</BorderPane>

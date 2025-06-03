@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane id="modeMenu" prefHeight="777.0" prefWidth="1117.0" style="-fx-background-image: url('/resources/img/creditBG.png'); -fx-background-size: cover; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-padding: 50px; -fx-background-color: black;" stylesheets="@../menu.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menu.ModeMenuController">
+   <center>
+      <VBox id="divContainer2" prefWidth="655.0" style="-fx-alignment: center;" BorderPane.alignment="CENTER">
+         <children>
+            <Label id="instructions" prefHeight="41.0" style="-fx-padding: 10 0 20 0; -fx-text-fill: white;" text="Enter your card details  to make a deposit and play" />
+            <HBox id="divText" prefHeight="179.0" prefWidth="655.0" style="-fx-alignment: center;">
+               <children>
+                  <VBox id="divCardFront" prefHeight="264.0" prefWidth="417.4" style="-fx-alignment: top-left;">
+                     <children>
+                        <Label style="-fx-padding: 20 0 0 25; -fx-alignment: center;" text="Credit" />
+                        <VBox id="divInpCard" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <TextField fx:id="inpCardNumber" promptText="card number" styleClass="inpCardFields" />
+                              <TextField fx:id="inpCardOwner" promptText="card owner" styleClass="inpCardFields" />
+                              <TextField fx:id="inpCvv" promptText="CVV" styleClass="inpCardFields" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox id="divDepositRight" prefWidth="325.0" style="-fx-padding: 0 0 20 0;">
+                     <children>
+                        <HBox prefWidth="200.0" styleClass="paddingGenerale">
+                           <children>
+                              <Label styleClass="depositText" text="User: " />
+                              <Label fx:id="lbUsername" styleClass="depositText" text="none" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="26.0" prefWidth="100.0" styleClass="paddingGenerale">
+                           <children>
+                              <Label styleClass="depositText" text="Current balance: " />
+                              <Label fx:id="lbCurrentBalance" styleClass="depositText" text="0" />
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-alignment: center;">
+                           <children>
+                              <Label text="Amount to deposit" />
+                              <TextField fx:id="inpDepositBalance" promptText="\$$$" style="-fx-alignment: center;" styleClass="inpMoney" />
+                           </children>
+                           <styleClass>
+                              <String fx:value="paddingGenerale" />
+                              <String fx:value="depositText" />
+                           </styleClass>
+                        </VBox>
+                        <VBox id="divError" prefHeight="200.0" prefWidth="100.0" style="-fx-alignment: center;">
+                           <children>
+                              <Label fx:id="lbEmptyFields" styleClass="errorMessages" text="Empty fields" visible="false" />
+                              <Label fx:id="lbNonValidData" styleClass="errorMessages" text="Non valid data" visible="false" />
+                              <Label fx:id="lbOperationConfirmed" styleClass="errorMessages" text="Operation confirmed" visible="false" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox style="-fx-alignment: center; -fx-padding: 10 0 0 0;">
+               <children>
+                  <Button id="btConfirmDeposit" fx:id="btConfirmDeposit" mnemonicParsing="false" onAction="#ConfirmDeposit" style="-fx-spacing: 10;" styleClass="btModeMenu" text="Confirm operation" />
+               </children>
+            </HBox>
+            <VBox id="divModeChoice" prefHeight="200.0" prefWidth="100.0" style="-fx-alignment: center;">
+               <children>
+                  <Label id="instructions" style="-fx-text-fill: white;" text="Choose a game mode" />
+                  <HBox prefWidth="1080.0" style="-fx-alignment: center; -fx-spacing: 10;">
+                     <children>
+                        <VBox prefHeight="151.0" prefWidth="312.0" style="-fx-alignment: center; -fx-spacing: 5;">
+                           <children>
+                              <Button fx:id="btManualMode" mnemonicParsing="false" onAction="#playManualMode" styleClass="btModeMenu" text="Manual mode" />
+                              <Label id="divText" maxWidth="312.0" prefHeight="100.0" prefWidth="311.0" style="-fx-padding: 10;" text="Accedi alla nostra selezione di giochi sperimentando liberamente le conseguenze reali del gioco d’azzardo" textAlignment="CENTER" wrapText="true" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="100.0" prefWidth="312.0" style="-fx-alignment: center; -fx-spacing: 5;">
+                           <children>
+                              <Button fx:id="btAutomaticMode" mnemonicParsing="false" onAction="#playAutomaticMode" styleClass="btModeMenu" text="Automatic Mode" />
+                              <Label id="divText" maxWidth="312.0" prefHeight="97.0" prefWidth="312.0" style="-fx-padding: 10; -fx-alignment: center;" text="Automatizza il processo di gioco potendo sperimentare le reali conseguenze del gioco d'azzardo con dei parametri predefiniti" textAlignment="CENTER" wrapText="true" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </center>
+   <top>
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 20; -fx-padding: 15;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btLogOut" mnemonicParsing="false" onAction="#logOut" prefHeight="52.0" prefWidth="163.0" style="-fx-font-size: 22px; -fx-padding: 10; -fx-background-color: red;" text="Log-out" textFill="WHITE" />
+            <Button id="btClose" fx:id="btClose" mnemonicParsing="false" onAction="#close" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: red; -fx-font-size: 22px; -fx-padding: 10;" text="X" textFill="WHITE" />
+         </children>
+      </HBox>
+   </top>
+</BorderPane>

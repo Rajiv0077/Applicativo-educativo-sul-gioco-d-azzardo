@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainBg" prefHeight="1080.0" prefWidth="1920.0" style=" -fx-background-image: url('/resources/img/gameChoiceMenuBG.jpg'); -fx-background-size: cover; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-padding: 60; -fx-background-color: black;" stylesheets="@../menu.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menu.GameChoiceMenuController">
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="110.0" style="-fx-spacing: 10; -fx-min-width: 420;">
+               <children>
+                  <Button fx:id="btGoBack" mnemonicParsing="false" onAction="#goBack" style="-fx-font-size: 22px; -fx-padding: 10px 20px; -fx-background-color: crimson;" text="⬅ Back to Bank" textFill="WHITE" />
+                  <Button fx:id="btViewStats" mnemonicParsing="false" onAction="#viewStats" prefHeight="54.0" prefWidth="203.0" style="-fx-font-size: 22px; -fx-padding: 10px 20 10px 20pxpx; -fx-background-color: lightblue;" text="📊 Show Statistics" />
+               </children>
+            </HBox>
+            <Region maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="1099.0" HBox.hgrow="ALWAYS" />
+            <HBox prefHeight="100.0" style="-fx-alignment: center; -fx-spacing: 10;">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../resources/img/chips1.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="moneyLabel" prefHeight="150.0" prefWidth="470.0" text="\$100" textFill="WHITE">
+                     <font>
+                        <Font size="64.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center; -fx-spacing: 20;" styleClass="bgNormal" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btDiceGame" mnemonicParsing="false" onAction="#startDiceGame" styleClass="btGame">
+               <graphic>
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-alignment: center; -fx-spacing: 40;">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resources/img/dice0.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Dice Game" textFill="WHITE" />
+                     </children>
+                  </VBox>
+               </graphic></Button>
+            <Button fx:id="btGuessNumber" mnemonicParsing="false" onAction="#startGuessNumber" style="-fx-alignment: center; -fx-line-spacing: 40;" styleClass="btGame" textFill="WHITE">
+               <graphic>
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-alignment: center;">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="151.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resources/img/number0.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Guess Number" textFill="#fffdfd" />
+                     </children>
+                  </VBox>
+               </graphic></Button>
+            <Button fx:id="btRoulette" mnemonicParsing="false" onAction="#startRoulette" styleClass="btGame">
+               <graphic>
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-alignment: center;">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resources/img/roulette0.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Roulette" textFill="WHITE" />
+                     </children>
+                  </VBox>
+               </graphic></Button>
+            <Button fx:id="btSlotMachines" mnemonicParsing="false" onAction="#startSlotMachines" styleClass="btGame">
+               <graphic>
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-alignment: center;">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="157.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resources/img/slot0.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Slot Machines" textFill="WHITE" />
+                     </children>
+                  </VBox>
+               </graphic></Button>
+            <Button fx:id="btGame5" mnemonicParsing="false" onAction="#startGame5" styleClass="btGame">
+               <graphic>
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-alignment: center;">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="158.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resources/img/coinflip0.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Coin Flip" textFill="#fff6f6" />
+                     </children>
+                  </VBox>
+               </graphic></Button>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

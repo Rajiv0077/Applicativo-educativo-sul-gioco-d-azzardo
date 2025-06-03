@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.QuadCurve?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280" style="-fx-padding: 50; -fx-background-color: black; -fx-background-image: url('/resources/img/gameChoiceMenuBG.jpg'); -fx-background-size: cover; -fx-background-position: center; -fx-background-repeat: no-repeat; " xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="slot.controller.SlotMachineController">
+   <!-- Top Section: Menu Buttons, Bot Dialogue, and Avatar -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20" style="-fx-alignment: top-left top-right;">
+            
+            <!-- Back to Menu & Show Statistics Buttons -->
+            <HBox spacing="10">
+                <Button fx:id="backButton" onAction="#turnToSwitch" style="-fx-font-size: 22px; -fx-padding: 10px 20px; -fx-background-color: crimson;" text="⬅ Back to Menu" />
+                <Button fx:id="statsButton" onAction="#showStats" style="-fx-font-size: 22px; -fx-padding: 10px 20px; -fx-background-color: lightblue;" text="📊 Show Statistics" />
+            </HBox>
+
+            <!-- Spacer to Push Dialogue Box & Avatar to Right -->
+            <Region HBox.hgrow="ALWAYS" />
+
+            <!-- Bot Dialogue & Bot Avatar -->
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                 <!--
+                  <Button mnemonicParsing="false" onAction="#turnSmile" text="Button" />--> 
+                  <Button mnemonicParsing="false" onAction="#playerWon" opacity="0.0" text="Button" />
+                  <Button mnemonicParsing="false" onAction="#hideMessageGroup" opacity="0.0" text="Button" />
+               </children>
+            </VBox>
+            <Group fx:id="messageGroup" visible="false">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="150.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
+                  <Polygon fill="WHITE" layoutX="300.0" layoutY="66.0" points="-24.199981689453125, 84.0, 7.20001220703125, 95.80000305175781, 3.0517578125E-5, 57.399993896484375" stroke="BLACK" strokeType="INSIDE" />
+                  <Line endX="54.5999755859375" endY="20.199996948242188" layoutX="244.0" layoutY="105.0" startX="33.999969482421875" startY="43.59999084472656" stroke="WHITE" strokeWidth="1.7" />
+                  <Line endX="-16.0" layoutX="317.0" layoutY="124.0" rotate="90.0" startX="-18.800018310546875" />
+                  <Line endX="0.03929279372096062" endY="1.497520923614502" layoutX="283.0" layoutY="148.0" rotate="15.7" startX="-10.045768737792969" startY="1.102697491645813" stroke="WHITE" strokeWidth="0.6" />
+                  <Label fx:id="botText" contentDisplay="TOP" layoutX="20.0" layoutY="17.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="115.0" prefWidth="265.0" style="-fx-label-padding: 4;" wrapText="true">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Group>
+            <Group>
+               <children>
+                  <ImageView fitHeight="225.0" fitWidth="300.0" layoutX="5.0" layoutY="-48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../resources/img/dealer.png" />
+                     </image>
+                  </ImageView>
+                  <QuadCurve fx:id="smile" controlY="-35.0" endX="15.0" endY="-15.0" fill="#ffffff00" layoutX="118.0" layoutY="70.0" rotate="180.0" startX="-15.0" startY="-15.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </Group>
+         </children>
+      </HBox>
+                </HBox>
+
+                
+    </top>
+
+    <center>
+        <GridPane hgap="10.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="400" minWidth="350" prefWidth="350" />
+                <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints vgrow="ALWAYS" />
+            </rowConstraints>
+            
+            <!-- Left control panel -->
+            <AnchorPane style="-fx-background-color: black;" GridPane.hgrow="SOMETIMES">
+                <children>
+                    <Label fx:id="lblMoneyLeft" layoutX="3.0" layoutY="60.0" style="-fx-font-weight: bold;" text="Money Left:" textFill="WHITE">
+                        <font><Font size="30.0" /></font>
+                    </Label>
+               <Label fx:id="resultLabel" layoutX="99.0" layoutY="115.0" prefHeight="36.0" prefWidth="94.0" style="-fx-font-size: 16; -fx-font-weight: bold;">
+                  <font>
+                     <Font size="18.0" />
+                  </font></Label>
+                    <Label fx:id="lblMLCurrency" layoutX="9.0" layoutY="115.0" prefHeight="51.0" prefWidth="321.0" textFill="WHITE">
+                        <font><Font size="35.0" /></font>
+                    </Label>
+                    <Label fx:id="lblHowMuchSpend" layoutX="6.0" layoutY="163.0" style="-fx-font-weight: bold;" text="Bet:" textFill="WHITE">
+                        <font><Font size="30.0" /></font>
+                    </Label>
+                    <Spinner fx:id="spnrMoneySpent" editable="true" layoutX="9.0" layoutY="220.0" prefWidth="320.0" style="-fx-background-color: gray;">
+    				<cursor><Cursor fx:constant="TEXT" /></cursor>
+					</Spinner>
+                    <Label fx:id="lblMoneyInUse" layoutY="254.0" prefHeight="47.0" prefWidth="292.0" style="-fx-font-weight: bold;" text="Last Money Used:" textFill="WHITE">
+                        <font><Font size="32.0" /></font>
+                    </Label>
+                    <Label fx:id="lblMIUCurrency" layoutX="6.0" layoutY="303.0" prefHeight="47.0" prefWidth="226.0" text="------" textFill="WHITE">
+                        <font><Font size="32.0" /></font>
+                    </Label>
+                    <Label fx:id="lblMoneyWon" layoutX="8.0" layoutY="350.0" prefHeight="58.0" prefWidth="304.0" style="-fx-font-weight: bold;" text="Money Won:" textFill="WHITE">
+                        <font><Font size="40.0" /></font>
+                    </Label>
+                    <Label fx:id="lblMWCurrency" layoutX="6.0" layoutY="408.0" prefHeight="58.0" prefWidth="344.0" text="-----" textFill="WHITE">
+                        <font><Font size="40.0" /></font>
+                    </Label>
+                    <Label fx:id="lblWinLose" alignment="TOP_LEFT" layoutX="3.0" layoutY="484.0" prefHeight="234.0" prefWidth="345.0" style="-fx-font-size: 40px;" text="---" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+                  <font>
+                     <Font size="10.0" />
+                  </font></Label>
+                    <ChoiceBox fx:id="cbofButtons" layoutX="9.0" layoutY="26.0" prefWidth="320.0" style="-fx-background-color: white;" />
+                    <Label fx:id="lblCounterGames" layoutX="246.0" layoutY="67.0" style="-fx-font-weight: bold;" text="N. Game: 0" textFill="WHITE">
+                        <font><Font size="20.0" /></font>
+                    </Label>
+               <Label alignment="CENTER" layoutX="7.0" layoutY="-51.0" prefHeight="65.0" prefWidth="336.0" style="-fx-font-weight: Bold;" text="Mode:" textFill="WHITE">
+                  <font>
+                     <Font size="34.0" />
+                  </font>
+               </Label>
+                </children>
+            </AnchorPane>
+            
+            <!-- Right slot machine area -->
+            <VBox alignment="CENTER" spacing="30" style="-fx-background-image: url('/resources/img/Slot.jpg'); -fx-background-repeat: none; -fx-background-size: cover;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                <!-- Slot Grid -->
+                <GridPane fx:id="slotGrid" alignment="CENTER" hgap="15" prefHeight="529.0" prefWidth="857.0" vgap="15">
+                    <!-- Main Slot Images (3x1) -->
+                    <ImageView fx:id="imgSlot1" fitHeight="160.0" fitWidth="281.0" managed="false" preserveRatio="true" visible="false" />
+                    <Label fx:id="lblSlot1" alignment="CENTER" managed="false" style="-fx-font-size: 24px; -fx-font-weight: bold;" textFill="WHITE" visible="false" />
+                    
+                    <ImageView fx:id="imgSlot2" fitHeight="160.0" fitWidth="281.0" managed="false" preserveRatio="true" visible="false" />
+                    <Label fx:id="lblSlot2" alignment="CENTER" managed="false" style="-fx-font-size: 24px; -fx-font-weight: bold;" textFill="WHITE" visible="false" />
+                    
+                    <ImageView fx:id="imgSlot3" fitHeight="160.0" fitWidth="281.0" managed="false" preserveRatio="true" visible="false" />
+                    <Label fx:id="lblSlot3" alignment="CENTER" managed="false" style="-fx-font-size: 24px; -fx-font-weight: bold;" textFill="WHITE" visible="false" />
+                    
+                    <!-- Additional Slot Images for 3x3 and 4x3 layouts -->
+                    <ImageView fx:id="imgSlot1h" fitHeight="160.0" fitWidth="281.0" managed="false" preserveRatio="true" visible="false" />
+                    <Label fx:id="lblSlot1h" alignment="CENTER" managed="false" style="-fx-font-size: 24px; -fx-font-weight: bold;" textFill="WHITE" visible="false" />
+                    
+                    <ImageView fx:id="imgSlot2h" fitHeight="160.0" fitWidth="281.0" managed="false" preserveRatio="true" visible="false" />
+                    <Label fx:id="lblSlot2h" alignment="CENTER" managed="false" style="-fx-font-size: 24px; -fx-font-weight: bold;" textFill="WHITE" visible="false" />
+                    
+                    <ImageView fx:id="imgSlot3h" fitHeight="160.0" fitWidth="281.0" managed="false" preserveRatio="true" visible="false" />
+                    <Label fx:id="lblSlot3h" alignment="CENTER" managed="false" style="-fx-font-size: 24px; -fx-font-weight: bold;" textFill="WHITE" visible="false" />
+                    
+                    <ImageView fx:id="imgSlot4h" fitHeight="160.0" fitWidth="281.0" managed="false" preserveRatio="true" visible="false" />
+                    <Label fx:id="lblSlot4h" alignment="CENTER" managed="false" style="-fx-font-size: 24px; -fx-font-weight: bold;" textFill="WHITE" visible="false" />
+                    
+                    <ImageView fx:id="imgSlot5h" fitHeight="160.0" fitWidth="281.0" managed="false" preserveRatio="true" visible="false" />
+                    <Label fx:id="lblSlot5h" alignment="CENTER" managed="false" style="-fx-font-size: 24px; -fx-font-weight: bold;" textFill="WHITE" visible="false" />
+                    
+                    <ImageView fx:id="imgSlot6h" fitHeight="160.0" fitWidth="281.0" managed="false" preserveRatio="true" visible="false" />
+                    <Label fx:id="lblSlot6h" alignment="CENTER" managed="false" style="-fx-font-size: 24px; -fx-font-weight: bold;" textFill="WHITE" visible="false" />
+                    
+                    <ImageView fx:id="imgSlot7h" fitHeight="160.0" fitWidth="281.0" managed="false" preserveRatio="true" visible="false" />
+                    <Label fx:id="lblSlot7h" alignment="CENTER" managed="false" style="-fx-font-size: 24px; -fx-font-weight: bold;" textFill="WHITE" visible="false" />
+                    
+                    <ImageView fx:id="imgSlot8h" fitHeight="160.0" fitWidth="281.0" managed="false" preserveRatio="true" visible="false" />
+                    <Label fx:id="lblSlot8h" alignment="CENTER" managed="false" style="-fx-font-size: 24px; -fx-font-weight: bold;" textFill="WHITE" visible="false" />
+                    
+                    <ImageView fx:id="imgSlot9h" fitHeight="160.0" fitWidth="281.0" managed="false" preserveRatio="true" visible="false" />
+                    <Label fx:id="lblSlot9h" alignment="CENTER" managed="false" style="-fx-font-size: 24px; -fx-font-weight: bold;" textFill="WHITE" visible="false" />
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+                </GridPane>
+                
+                <!-- Button Row -->
+               <HBox alignment="BOTTOM_CENTER" prefHeight="103.0" prefWidth="930.0" spacing="40">
+    <AnchorPane prefHeight="96.0" prefWidth="909.0">
+        <children>
+            
+            <Button fx:id="btnBegin" layoutX="54.0" layoutY="-23.0" onAction="#startGame" prefHeight="100.0" prefWidth="345.0" style="-fx-font-size: 30px; -fx-padding: 12px 40px; -fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #FFD700; -fx-border-width: 2px;">
+                <cursor><Cursor fx:constant="HAND" /></cursor>
+                SPIN!
+            </Button>
+            
+            <Button fx:id="btnInstruction" layoutX="547.0" layoutY="-24.0" onAction="#instruction" prefHeight="100.0" prefWidth="345.0" style="-fx-font-size: 25px; -fx-padding: 10px 25px; -fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #FFD700; -fx-border-width: 2px; -fx-font-weight: bold;" text="Instructions">
+                <cursor><Cursor fx:constant="HAND" /></cursor>
+                ISTRUZIONI
+            </Button>
+        </children>
+    </AnchorPane>
+</HBox>
+
+            <padding>
+               <Insets left="10.0" right="10.0" />
+            </padding>
+            </VBox>
+        </GridPane>
+    </center>
+
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</BorderPane>

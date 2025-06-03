@@ -1,0 +1,109 @@
+/* Sfondo generale stile tavolo da casinò */
+.root {
+     /*-fx-background-color: radial-gradient(radius 100%, #14532d, #0f3e22); Verde casinò sfumato */
+     -fx-background-color: #000000
+}
+
+/* Testo del risultato */
+.label {
+    -fx-text-fill: gold;
+    -fx-font-weight: bold;
+}
+
+/* Pulsanti principali */
+.button {
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-effect: dropshadow(gaussian, black, 3, 0.3, 2, 2);
+}
+
+.button:hover {
+    -fx-background-color: #2ecc71;     /* Più chiaro al passaggio del mouse */
+    -fx-cursor: hand;
+}
+
+/* TESTA in verde */
+#testaButton {
+    -fx-background-color: linear-gradient(to bottom, #2ecc71, #27ae60);
+    -fx-border-color: #14532d;
+}
+
+/* CROCE in rosso */
+#croceButton {
+    -fx-background-color: linear-gradient(to bottom, #e74c3c, #c0392b);
+    -fx-border-color: #7f1d1d;
+}
+
+/* START in blu */
+#startButton {
+    -fx-background-color: linear-gradient(to bottom, #3498db, #2980b9);
+    -fx-border-color: #1e3a5f;
+}
+
+/* BACK in grigio */
+#backButton {
+    -fx-background-color: linear-gradient(to bottom, #bdc3c7, #95a5a6);
+    -fx-text-fill: black;
+    -fx-border-color: #555;
+}
+
+/* Simulazione del panno da gioco sotto il cilindro */
+.cylinder {
+    -fx-effect: dropshadow(gaussian, black, 6, 0.4, 0, 2);
+    -fx-translate-y: -10px;
+}
+
+.table-frame {
+    -fx-border-color: #a1662f; /* Colore verde per il bordo */
+    -fx-border-width: 5;
+    -fx-background-color: #032b5e; /* Tavolo verde scuro */
+    -fx-padding: 10; /* Distanza interna del bordo */
+    -fx-shape: "M 0 0 L 200 0 L 200 100 L 0 100 Z"; /* Cornice rettangolare */
+    -fx-background-radius: 10; /* Raggi angoli arrotondati */
+    -fx-border-radius: 10; /* Bordi arrotondati */
+}
+
+.text {
+    -fx-fill: white;
+    -fx-font-weight: bold;
+}
+
+.choice-box {
+    -fx-background-color: #1e3d2f; /* Verde scuro */
+    -fx-border-color: #d4af37;     /* Oro */
+    -fx-border-width: 2px;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+/* Popup del menu (voce selezionata o lista) */
+.choice-box .label {
+    -fx-text-fill: black;
+}
+
+.choice-box .arrow-button {
+    -fx-background-color: #14532d; /* Verde panno */
+    -fx-border-color: #d4af37;
+}
+
+.choice-box .arrow {
+    -fx-background-color: #14532d;
+}
+
+/* Sfondo del popup */
+.choice-box .context-menu {
+    -fx-background-color: #1e3d2f;
+}
+
+/* Testo delle voci nel popup */
+.choice-box .menu-item > .label {
+    -fx-text-fill: black;
+}
+
+/* Hover su voce */
+.choice-box .menu-item:focused {
+    -fx-background-color: #14532d;
+}
+

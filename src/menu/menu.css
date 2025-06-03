@@ -1,0 +1,198 @@
+/*JavaFX CSS */
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property
+ */
+
+/*Start menu style */
+
+#base{
+	-fx-background-image: url("../resources/img/CasinoHall.jpg");
+	-fx-background-repeat: no-repeat ;
+	-fx-background-size: cover ;
+	-fx-background-position: center;
+}
+
+#divContainer{
+	-fx-min-height: 460;
+	-fx-min-width: 560;
+	-fx-max-height: 450;
+	-fx-max-width: 655;
+}
+
+#divContainerStart{
+	-fx-min-height: 460;
+	-fx-min-width: 560;
+	-fx-max-height: 450;
+	-fx-max-width: 655;
+}
+
+#divText{
+	-fx-background-color: rgba(255, 248, 220, 0.87); /*color with transparency */
+	-fx-spacing: 10;
+	-fx-background-radius: 20px;
+}
+
+#divTextStart{
+	-fx-background-color: rgba(255, 248, 220, 0.87); /*color with transparency */
+	-fx-spacing: 10;
+	-fx-background-radius: 20px;
+	-fx-min-height: 200;
+}
+
+#casinoName{
+	-fx-font-size: 40px;
+	-fx-font-weight: bold;
+	/*-fx-padding: 0 0 40px 0; /*padding on bottom */
+	-fx-padding: 30 0 0 0; /*padding on top */
+}
+
+#instructions{
+	-fx-padding: 40 0 0 0; /*padding on top */
+	-fx-font-size: 14.5px
+}
+
+#divBt{
+	-fx-min-height: 100;
+	-fx-min-width: 500;
+	-fx-spacing: 20px;
+}
+
+.btStartPage{
+	-fx-min-height: 60;
+	-fx-min-width: 200;
+	-fx-font-size: 17;
+	-fx-font-weight: bold;
+	-fx-text-fill: white;
+	-fx-background-color: green;
+	-fx-background-radius: 20px;
+    -fx-effect: dropshadow(gaussian, black, 8, 0.5, 0, 4);
+}
+.btStartPage:hover{
+	-fx-background-color: red;
+	-fx-effect: dropshadow(gaussian, black, 15, 0.7, 0, 6);
+}
+
+
+
+/*sign-in and log-in menu style */
+#accessMenu{
+	-fx-background-image: url("../resources/img/ingresso2.jpg");
+	-fx-background-repeat: no-repeat ;
+	-fx-background-size: cover ;
+	-fx-background-position: center;
+}
+
+.errorMessages{
+	-fx-min-height: 40;
+	-fx-min-width: 180;
+	-fx-font-size: 15;
+	-fx-font-weight: bold;
+	-fx-text-fill: red;
+	-fx-background-color: white;
+	-fx-background-radius: 20px;
+	-fx-padding: 10px;
+	-fx-alignment: center;
+}
+
+.inpStyle{
+	-fx-min-width: 250px;
+	-fx-max-width: 300px; 
+}
+
+
+/*mode menu and deposit menu */
+#modeMenu{
+	/*-fx-background-image: url("../resources/img/CasinoHall_gameChoice.jpg");
+	-fx-background-image: url("../resources/img/ingresso2.jpg");
+	-fx-background-repeat: no-repeat ;
+	-fx-background-size: cover ;
+	-fx-background-position: center;*/
+}
+
+#divContainer2{
+	-fx-min-height: 300;
+	-fx-min-width: 560;
+	-fx-max-height: 570;
+	-fx-max-width: 750;
+}
+#divDeposit{
+	-fx-spacing: 10;
+}
+
+#divCardFront{
+	-fx-background-image: url("../resources/img/creditCardBase.png");
+	-fx-background-repeat: no-repeat ;
+	-fx-background-size: cover ;
+	-fx-background-position: center;
+	-fx-padding: 20px;
+	-fx-min-width: 100%;
+}
+
+#divInpCard{
+	-fx-padding: 40 0 0 0; /*padding on top */
+	-fx-spacing: 10;
+	-fx-alignment: center;
+}
+
+.btModeMenu{
+	-fx-padding: 5;
+	-fx-min-height: 11;
+	-fx-min-width: 180;
+	-fx-font-size: 13;
+	-fx-font-weight: bold;
+	-fx-text-fill: white;
+	-fx-background-color: green;
+	-fx-background-radius: 20px;
+    -fx-effect: dropshadow(gaussian, black, 8, 0.5, 0, 4);
+}
+.btModeMenu:hover{
+	-fx-background-color: red;
+	-fx-effect: dropshadow(gaussian, black, 15, 0.7, 0, 6);
+}
+.inpCardFields{
+	-fx-padding: 5 0 0 3; 
+	-fx-min-width: 20px;
+	-fx-max-width: 200px;
+	-fx-font-size: 15px;
+}
+.paddingGenerale{
+	-fx-padding: 10 0 0 15 ;
+}
+.inpMoney{
+	-fx-min-width: 150px;
+	-fx-max-width: 200px; 
+}
+
+.depositText{
+	-fx-font-size: 15px
+}
+
+/*game choice */
+#divGameChoiceBase{
+	-fx-background-color: grey;
+}
+.btGame{
+	-fx-alignment: bottom-center;
+	-fx-padding: 10;
+	-fx-min-height: 250;
+	-fx-min-width: 180;
+	-fx-font-size: 23;
+	-fx-font-weight: bold;
+	-fx-text-fill: white;
+	-fx-background-color: rgba(0, 20, 58, 1);
+	-fx-background-radius: 20px;
+    -fx-effect: dropshadow(gaussian, black, 8, 0.5, 0, 4);
+    
+    -fx-transition: all 0.5s ease-in-out;
+}
+.btGame:hover{
+	-fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    /*-fx-background-image: url("img/hover.png"); /* immagine su hover */
+    
+ }
+
+.bgNormal{
+	-fx-alignment: center;
+	-fx-spacing: 20;
+}
+

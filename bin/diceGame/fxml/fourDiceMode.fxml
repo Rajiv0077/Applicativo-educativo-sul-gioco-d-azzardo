@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.QuadCurve?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="1080" prefWidth="1920" style="-fx-padding: 50; -fx-background-image: url('/resources/img/diceGameBG.png'); -fx-background-size: cover; -fx-background-position: center; -fx-background-repeat: no-repeat;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="diceGame.controllers.DiceGameController">
+
+    <BorderPane style="-fx-padding: 20px; -fx-background-color: rgba(244,244,244,0.0);">
+
+        <!-- 🎮 Center Section - Enhanced Layout with 4 Dice (2x2 Grid) -->
+        <center>
+            <GridPane alignment="CENTER" hgap="50" vgap="50">
+                <columnConstraints>
+                    <ColumnConstraints halignment="CENTER" />
+                    <ColumnConstraints halignment="CENTER" />
+                    <ColumnConstraints halignment="CENTER" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints vgrow="ALWAYS" />
+                    <RowConstraints vgrow="ALWAYS" />
+                </rowConstraints>
+
+                <!-- 🎰 Control Panel (Centered) -->
+                <StackPane prefWidth="498.0" style="-fx-background-color: #e8f5e9; -fx-padding: 20px; -fx-background-radius: 15px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0); -fx-max-width: 700; -fx-min-width: 600;" GridPane.columnIndex="1" GridPane.rowIndex="0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-alignment: center; -fx-spacing: 50;">
+                     <children>
+                        <HBox alignment="CENTER" spacing="40">
+                           <children>
+                              <HBox alignment="CENTER" spacing="10">
+                                 <children>
+                                    <Label style="-fx-font-size: 28px;" text="Bet: " />
+                                    <TextField fx:id="betInput" style="-fx-font-size: 24px; -fx-pref-width: 150px;" />
+                                    <Label text="\$" textAlignment="CENTER" textFill="#006812">
+                                       <font>
+                                          <Font name="System Bold" size="44.0" />
+                                       </font>
+                                       <effect>
+                                          <Glow />
+                                       </effect>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <Button fx:id="rollButton" onAction="#rollDice" style="-fx-font-size: 24px; -fx-padding: 15px 30px; -fx-background-color: #81c784; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0); -fx-border-color: darkgreen; -fx-border-width: 3px; -fx-border-radius: 10;" text="Roll Dice" />
+                           </children>
+                        </HBox>
+                        <Label fx:id="errorLabel" prefHeight="40.0" prefWidth="556.0" style="-fx-alignment: center;" textFill="#da0000">
+                           <font>
+                              <Font name="System Bold" size="28.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+                </StackPane>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="100.0" style="-fx-alignment: center;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+               <children>
+      
+                      <!-- 🎲 Player's Dice Area -->
+                      <StackPane style="-fx-background-color: rgba(232,245,233,0.9); -fx-padding: 30px; -fx-background-radius: 15px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);">
+                          <VBox alignment="CENTER" spacing="20">
+                              <Label style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #2e7d32;" text="Player's Dice" />
+                              <VBox alignment="CENTER" spacing="30">
+                                  <HBox alignment="CENTER" spacing="30">
+                                      <StackPane fx:id="PlayerDiceContainer1" prefHeight="180" prefWidth="180">
+                                          <ImageView fx:id="playerDiceImage1" fitHeight="180" fitWidth="180" opacity="0" preserveRatio="true" />
+                                      </StackPane>
+                                      <StackPane fx:id="PlayerDiceContainer2" prefHeight="180" prefWidth="180">
+                                          <ImageView fx:id="playerDiceImage2" fitHeight="180" fitWidth="180" opacity="0" preserveRatio="true" />
+                                      </StackPane>
+                                  </HBox>
+                                  <HBox alignment="CENTER" spacing="30">
+                                      <StackPane fx:id="PlayerDiceContainer3" prefHeight="180" prefWidth="180">
+                                          <ImageView fx:id="playerDiceImage3" fitHeight="180" fitWidth="180" opacity="0" preserveRatio="true" />
+                                      </StackPane>
+                                      <StackPane fx:id="PlayerDiceContainer4" prefHeight="180" prefWidth="180">
+                                          <ImageView fx:id="playerDiceImage4" fitHeight="180" fitWidth="180" opacity="0" preserveRatio="true" />
+                                      </StackPane>
+                                  </HBox>
+                              </VBox>
+                          </VBox>
+                      </StackPane>
+      
+                      <!-- 🎲 Bot's Dice Area -->
+                      <StackPane style="-fx-background-color: rgba(232,245,233,0.9); -fx-padding: 30px; -fx-background-radius: 15px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);">
+                          <VBox alignment="CENTER" spacing="20">
+                              <Label style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #2e7d32;" text="Bot's Dice" />
+                              <VBox alignment="CENTER" spacing="30">
+                                  <HBox alignment="CENTER" spacing="30">
+                                      <StackPane fx:id="BotDiceContainer1" prefHeight="180" prefWidth="180">
+                                          <ImageView fx:id="botDiceImage1" fitHeight="180" fitWidth="180" opacity="0" preserveRatio="true" />
+                                      </StackPane>
+                                      <StackPane fx:id="BotDiceContainer2" prefHeight="180" prefWidth="180">
+                                          <ImageView fx:id="botDiceImage2" fitHeight="180" fitWidth="180" opacity="0" preserveRatio="true" />
+                                      </StackPane>
+                                  </HBox>
+                                  <HBox alignment="CENTER" spacing="30">
+                                      <StackPane fx:id="BotDiceContainer3" prefHeight="180" prefWidth="180">
+                                          <ImageView fx:id="botDiceImage3" fitHeight="180" fitWidth="180" opacity="0" preserveRatio="true" />
+                                      </StackPane>
+                                      <StackPane fx:id="BotDiceContainer4" prefHeight="180" prefWidth="180">
+                                          <ImageView fx:id="botDiceImage4" fitHeight="180" fitWidth="180" opacity="0" preserveRatio="true" />
+                                      </StackPane>
+                                  </HBox>
+                              </VBox>
+                          </VBox>
+                      </StackPane>
+               </children>
+            </HBox>
+            </GridPane>
+        </center>
+      <top>
+         <HBox alignment="CENTER_LEFT" spacing="20" style="-fx-alignment: top-left top-right;" BorderPane.alignment="CENTER">
+            <children>
+               <VBox prefHeight="200.0" prefWidth="100.0">
+                  <children>
+                     <HBox prefHeight="0.0" prefWidth="424.0" spacing="10" style="-fx-fill-height: 250; -fx-padding: 20; -fx-min-width: 500; -fx-alignment: center; -fx-background-color: rgba(232,245,233,0.9); -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0); -fx-border-radius: 20px;">
+                        <children>
+                           <Button fx:id="backButton" onAction="#turnToSwitch" style="-fx-font-size: 22px; -fx-padding: 10px 20px; -fx-background-color: crimson; -fx-text-fill: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);" text="⬅ Back to Menu">
+                              <effect>
+                                 <Glow level="0.25" />
+                              </effect></Button>
+                           <Button fx:id="statsButton" onAction="#showStats" style="-fx-font-size: 22px; -fx-padding: 10px 20px; -fx-background-color: #2196F3; -fx-text-fill: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);" text="📊 Show Statistics">
+                              <effect>
+                                 <Glow level="0.25" />
+                              </effect></Button>
+                        </children>
+                     </HBox>
+                     <Region prefHeight="143.0" prefWidth="500.0" />
+                  </children>
+               </VBox>
+               <Region HBox.hgrow="ALWAYS" />
+               <HBox alignment="CENTER_RIGHT" spacing="20" style="-fx-padding: 10; -fx-alignment: center; -fx-border-radius: 50;">
+                  <children>
+                     <VBox style="-fx-alignment: center; -fx-padding: 0 40;">
+                        <children>
+                           <HBox spacing="10" style="-fx-alignment: center-right; -fx-padding: 20 30; -fx-max-height: 100; -fx-background-color: #e8f5e9;">
+                              <children>
+                                 <Label style="-fx-font-size: 28px; -fx-text-fill: #333;" text="Money: " />
+                                 <Label fx:id="moneyLabel" style="-fx-font-size: 28px; -fx-text-fill: #2e7d32; -fx-font-weight: bold;" text="\$">
+                                    <effect>
+                                       <Glow />
+                                    </effect></Label>
+                              </children>
+                           </HBox>
+                        </children>
+                     </VBox>
+                     <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                        <children>
+                           <Group fx:id="messageGroup" visible="false">
+                              <children>
+                                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="150.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
+                                 <Polygon fill="WHITE" layoutX="300.0" layoutY="66.0" points="-24.199981689453125, 84.0, 7.20001220703125, 95.80000305175781, 3.0517578125E-5, 57.399993896484375" stroke="BLACK" strokeType="INSIDE" />
+                                 <Line endX="54.5999755859375" endY="20.199996948242188" layoutX="244.0" layoutY="105.0" startX="33.999969482421875" startY="43.59999084472656" stroke="WHITE" strokeWidth="1.7" />
+                                 <Line endX="-16.0" layoutX="317.0" layoutY="124.0" rotate="90.0" startX="-18.800018310546875" />
+                                 <Line endX="0.03929279372096062" endY="1.497520923614502" layoutX="283.0" layoutY="148.0" rotate="15.7" startX="-10.045768737792969" startY="1.102697491645813" stroke="WHITE" strokeWidth="0.6" />
+                                 <Label fx:id="botText" contentDisplay="TOP" layoutX="20.0" layoutY="17.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="115.0" prefWidth="265.0" style="-fx-label-padding: 4;" wrapText="true">
+                                    <font>
+                                       <Font size="20.0" />
+                                    </font>
+                                 </Label>
+                              </children>
+                           </Group>
+                           <Group>
+                              <children>
+                                 <ImageView fx:id="dealerIMG" fitHeight="225.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                       <Image url="@../../../../../../Downloads/84999f5df73bc9aa35aae2af7ef8d9ac.jpeg" />
+                                    </image>
+                                 </ImageView>
+                                 <QuadCurve fx:id="smile" controlY="-35.0" endX="15.0" endY="-15.0" fill="#ffffff00" layoutX="112.0" layoutY="121.0" rotate="180.0" startX="-15.0" startY="-15.0" stroke="BLACK" strokeType="INSIDE" />
+                              </children>
+                           </Group>
+                        </children>
+                     </HBox>
+                  </children>
+               </HBox>
+            </children>
+         </HBox>
+      </top>
+    </BorderPane>
+
+    <!-- 🎯 Multiplier Overlay -->
+    <Label fx:id="multiplierOverlay" style="-fx-font-size: 150px; -fx-font-weight: bold; -fx-text-fill: #2ecc71; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 15, 0, 0, 0);" visible="false" StackPane.alignment="CENTER" />
+</StackPane>

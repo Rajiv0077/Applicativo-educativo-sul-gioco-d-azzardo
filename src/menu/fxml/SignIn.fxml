@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane id="accessMenu" prefHeight="720.0" prefWidth="1080.0" style="-fx-padding: 20px;" stylesheets="@../menu.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menu.SignInController">
+   <top>
+      <HBox id="divTop" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0">
+               <children>
+                  <Button id="btGoBack" fx:id="btBack" mnemonicParsing="false" onAction="#goBack" style="-fx-font-size: 22px; -fx-padding: 10px 20px; -fx-background-color: crimson;" text="⬅ Go Back" textFill="WHITE" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox id="divContainer" prefWidth="100.0" style="-fx-alignment: center;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox id="divTextStart" prefHeight="200.0" prefWidth="100.0" style="-fx-alignment: center; -fx-min-height: 200px;">
+               <children>
+                  <Label id="lbInpData" text="Username" />
+                  <TextField fx:id="inpUsername" promptText="username" styleClass="inpStyle" />
+                  <Label id="lbInpData" text="Password" />
+                  <TextField fx:id="inpPsw1" promptText="******" styleClass="inpStyle" />
+                  <Label id="lbInpData" text="Confirm Password" />
+                  <TextField fx:id="inpPsw2" promptText="******" styleClass="inpStyle" />
+               </children>
+            </VBox>
+            <VBox id="divBt" prefHeight="200.0" prefWidth="100.0" style="-fx-alignment: center;">
+               <children>
+                  <Button fx:id="btSignIn" mnemonicParsing="false" onAction="#signIn" styleClass="btStartPage" text="Sign in" />
+               </children>
+            </VBox>
+            <VBox id="divErrorMessages" prefHeight="200.0" prefWidth="100.0" style="-fx-alignment: center;">
+               <children>
+                  <Label fx:id="lbUsernameError" styleClass="errorMessages" text="Username already registered" visible="false" />
+                  <Label fx:id="lbPswError" styleClass="errorMessages" text="Passwords do not match" visible="false" />
+                  <Label fx:id="lbEmptyFields" styleClass="errorMessages" text="Empty Fields" visible="false" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
